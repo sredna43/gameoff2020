@@ -14,4 +14,6 @@ You should only be creating branches off of the dev branch.
 
 ## Collaborators
 
+- Evan Gunderson
 - Anders Olson
+
