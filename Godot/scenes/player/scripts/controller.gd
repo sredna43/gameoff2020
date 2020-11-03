@@ -13,11 +13,18 @@ var velocity: Vector2 = Vector2.ZERO
 var vx: float = 0 setget _set_vx, _get_vx
 var vy: float = 0 setget _set_vy, _get_vy
 
+# Inputs
+var horizontal_input: int = 0
+var vertical_input: int = 0
+
+# State Machine
+onready var state_machine: PlayerFSM = $States
+
 
 # Core functions
 
 func _ready() -> void:
-    pass
+    state_machine.init(self)
     
 func _physics_process(delta: float) -> void:
     pass
