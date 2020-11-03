@@ -5,12 +5,12 @@ extends KinematicBody2D
 class_name Player
 
 # Player Movement (Variables)
-export var walk_speed: float = 250
-export var run_speed: float = 350
-export var air_speed: float = 300
+export var walk_speed: float = 350
+export var run_speed: float = 500
+export var air_accel: float = 45
 export var gravity: float = 40
 export var terminal_velocity: float = 700
-export var jump_power: float = 400
+export var jump_power: float = 600
 export var air_resistance: float = 0.05
 var velocity: Vector2 = Vector2.ZERO
 var vx: float = 0 setget _set_vx, _get_vx
