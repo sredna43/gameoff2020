@@ -8,14 +8,32 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scenes/player/scripts/controller.gd"
+}, {
+"base": "Node2D",
+"class": "PlayerFSM",
+"language": "GDScript",
+"path": "res://scenes/player/scripts/state_machine/player_fsm.gd"
+}, {
+"base": "Node2D",
+"class": "PlayerState",
+"language": "GDScript",
+"path": "res://scenes/player/scripts/state_machine/player_state.gd"
+} ]
 _global_script_class_icons={
-
+"Player": "",
+"PlayerFSM": "",
+"PlayerState": ""
 }
 
 [application]
 
 config/name="GameOff 2020"
+run/main_scene="res://scenes/levels/TestWorld.tscn"
 config/icon="res://icon.png"
 
 [rendering]
