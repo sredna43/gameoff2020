@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/player/scripts/controller.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player/scripts/state_machine/states/walk.gd" type="Script" id=2]
 [ext_resource path="res://scenes/player/scripts/state_machine/player_fsm.gd" type="Script" id=3]
+[ext_resource path="res://scenes/player/scripts/state_machine/states/idle.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -13,10 +14,13 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="States" type="Node" parent="."]
+[node name="States" type="Node2D" parent="."]
 script = ExtResource( 3 )
 
-[node name="Walk" type="Node" parent="States"]
+[node name="Idle" type="Node2D" parent="States"]
+script = ExtResource( 4 )
+
+[node name="Walk" type="Node2D" parent="States"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

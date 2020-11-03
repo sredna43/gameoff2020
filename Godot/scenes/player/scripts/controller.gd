@@ -4,7 +4,7 @@
 extends KinematicBody2D
 class_name Player
 
-# Player Movement
+# Player Movement (Variables)
 export var walk_speed: float = 250
 export var run_speed: float = 350
 export var gravity: float = 40
@@ -13,22 +13,33 @@ var velocity: Vector2 = Vector2.ZERO
 var vx: float = 0 setget _set_vx, _get_vx
 var vy: float = 0 setget _set_vy, _get_vy
 
-# Inputs
+# Input (Variables)
 var horizontal_input: int = 0
 var vertical_input: int = 0
 
-# State Machine
+
+# State Machine (Variables)
 onready var state_machine: PlayerFSM = $States
 
 
-# Core functions
+# Core functions 
 
 func _ready() -> void:
     state_machine.init(self)
     
 func _physics_process(delta: float) -> void:
-    pass
+    _update_inputs()
+    state_machine.run()
+
+func move():
+    velocity = move_and_slide(velocity, Vector2.UP)
     
+func _update_inputs() -> void:
+    horizontal_input = (
+        int(Input.is_action_pressed("player_right"))
+        - int(Input.is_action_pressed("player_left"))
+    )
+
 func apply_gravity():
     pass
 
