@@ -1,20 +1,12 @@
 # Quick Description
 
 ### Work Done:
-
 <!-- What work did you do? Enter it below -->
 
 
-
-
-
 ## Checklist
-
 <!-- Please make sure these have been completed -->
-
 <!-- Add an x in the [ ] to check each item off like this: [x] -->
-
-
 
 - [ ] I have named my PR using the feat/fix/update naming scheme
 - [ ] I have linked my work to the ClickUp Task Board via one of [these methods](https://docs.clickup.com/integrations/github)
