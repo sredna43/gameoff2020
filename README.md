@@ -11,3 +11,9 @@ A quick guide on collaboration can be found [here](https://github.com/sredna43/g
 `dev`: Used for all pre-release work
 
 You should only be creating branches off of the dev branch.
+
+## Collaborators
+
+- Evan Gunderson
+- Anders Olson
+
