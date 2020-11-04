@@ -12,6 +12,8 @@ export var terminal_velocity: float = 700
 var velocity: Vector2 = Vector2.ZERO
 var vx: float = 0 setget _set_vx, _get_vx
 var vy: float = 0 setget _set_vy, _get_vy
+var direction: int = 0
+
 
 # Timers
 onready var attack_timer: Timer = $Timers/AttackTimer
