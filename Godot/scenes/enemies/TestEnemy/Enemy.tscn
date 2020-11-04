@@ -11,6 +11,12 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="States" type="Node2D" parent="."]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="AttackTimer" type="Timer" parent="Timers"]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
@@ -23,7 +29,3 @@ color = Color( 0.572549, 0.160784, 0.160784, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Timers" type="Node" parent="."]
-
-[node name="AttackTimer" type="Timer" parent="Timers"]
