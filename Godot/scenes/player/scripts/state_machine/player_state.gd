@@ -10,13 +10,13 @@ func _ready() -> void:
     tag = name.to_lower()
 
 # Function to be called when we enter this state
-func enter(player: KinematicBody2D) -> void:
+func enter(_player: KinematicBody2D) -> void:
     pass
     
 # Function to be called with each physics process during runtime
-func run(player: KinematicBody2D) -> String:
+func run(_player: KinematicBody2D) -> String:
     return ""
     
 # Function to be called as we exit the state
-func exit(player: KinematicBody2D) -> void:
+func exit(_player: KinematicBody2D) -> void:
     pass

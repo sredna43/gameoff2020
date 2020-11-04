@@ -40,7 +40,7 @@ onready var state_machine: PlayerFSM = $States
 func _ready() -> void:
     state_machine.init(self)
     
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
     _update_inputs()
     state_machine.run()
 
