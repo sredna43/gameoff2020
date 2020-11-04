@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "PlayerState",
 "language": "GDScript",
 "path": "res://scenes/player/scripts/state_machine/player_state.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "TestEnemy",
+"language": "GDScript",
+"path": "res://scenes/enemies/TestEnemy/scripts/controller.gd"
 } ]
 _global_script_class_icons={
 "Player": "",
 "PlayerFSM": "",
-"PlayerState": ""
+"PlayerState": "",
+"TestEnemy": ""
 }
 
 [application]

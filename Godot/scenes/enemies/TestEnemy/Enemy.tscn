@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/enemies/TestEnemy/scripts/controller.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
 [node name="Enemy" type="KinematicBody2D"]
 scale = Vector2( 2.56154, 2.56154 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }

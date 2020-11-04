@@ -5,14 +5,13 @@
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=3]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2( 839.602, 319.902 )
-
-[node name="Enemy" parent="." instance=ExtResource( 1 )]
-position = Vector2( 29.6543, 28.0062 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -675.842, -0.987762 )
+position = Vector2( 283.074, 303.169 )
 
 [node name="Node2D" parent="." instance=ExtResource( 2 )]
-position = Vector2( -347.012, 260.571 )
+position = Vector2( 539.972, 595.71 )
 scale = Vector2( 2.32, 1 )
+
+[node name="Enemy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 865.22, 328.355 )
