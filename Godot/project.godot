@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "EnemyFSM",
+"language": "GDScript",
+"path": "res://scenes/enemies/TestEnemy/scripts/state_machine/enemy_fsm.gd"
+}, {
+"base": "Node2D",
 "class": "EnemyState",
 "language": "GDScript",
 "path": "res://scenes/enemies/TestEnemy/scripts/state_machine/enemy_state.gd"
@@ -35,6 +40,7 @@ _global_script_classes=[ {
 "path": "res://scenes/enemies/TestEnemy/scripts/controller.gd"
 } ]
 _global_script_class_icons={
+"EnemyFSM": "",
 "EnemyState": "",
 "Player": "",
 "PlayerFSM": "",
