@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/player/scripts/controller.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player/scripts/state_machine/states/walk.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/player/scripts/state_machine/states/run.gd" type="Script" id=5]
 [ext_resource path="res://scenes/player/scripts/state_machine/states/jump.gd" type="Script" id=6]
 [ext_resource path="res://scenes/player/scripts/state_machine/states/air.gd" type="Script" id=7]
+[ext_resource path="res://scenes/player/scripts/state_machine/states/shoot.gd" type="Script" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -28,10 +29,26 @@ script = ExtResource( 2 )
 
 [node name="Run" type="Node2D" parent="States"]
 script = ExtResource( 5 )
+
 [node name="Jump" type="Node2D" parent="States"]
 script = ExtResource( 6 )
+
 [node name="Air" type="Node2D" parent="States"]
 script = ExtResource( 7 )
+
+[node name="Shoot" type="Node2D" parent="States"]
+script = ExtResource( 8 )
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="JumpTimer" type="Timer" parent="Timers"]
+wait_time = 0.06
+one_shot = true
+
+[node name="GroundTimer" type="Timer" parent="Timers"]
+wait_time = 0.06
+one_shot = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
@@ -43,13 +60,3 @@ margin_bottom = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Timers" type="Node" parent="."]
-
-[node name="JumpTimer" type="Timer" parent="Timers"]
-wait_time = 0.06
-one_shot = true
-
-[node name="GroundTimer" type="Timer" parent="Timers"]
-wait_time = 0.06
-one_shot = true
