@@ -5,7 +5,7 @@ extends PlayerState
 var max_speed: float = 0
 
 func enter(player: KinematicBody2D):
-    max_speed = abs(player.vx) if abs(player.vx) > 0 else player.walk_speed
+    max_speed = abs(player.vx) if abs(player.vx) > player.walk_speed else player.walk_speed
     .enter(player)
     
 func run(player: KinematicBody2D):
@@ -22,4 +22,7 @@ func run(player: KinematicBody2D):
         return "idle" if player.horizontal_input == 0 else "walk"
 #    if player.grounded and player.jumping:
 #        return "jump"
+    if player.can_double_jump and Input.is_action_just_pressed("player_jump"):
+        player.can_double_jump = false
+        return "jump"
     return ""

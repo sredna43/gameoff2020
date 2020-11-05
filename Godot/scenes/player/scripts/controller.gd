@@ -7,7 +7,6 @@ class_name Player
 # Signals
 signal shoot
 
-
 # Player Movement (Variables)
 export var walk_speed: float = 350
 export var run_speed: float = 500
