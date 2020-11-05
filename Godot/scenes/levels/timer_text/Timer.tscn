@@ -2,10 +2,13 @@
 
 [ext_resource path="res://scenes/levels/timer_text/timer.gd" type="Script" id=1]
 
-[node name="TextDisplay" type="Label"]
-margin_right = 343.0
-margin_bottom = 147.0
+[node name="OxygenTimer" type="Label"]
+margin_right = 117.0
+margin_bottom = 34.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ms" type="Timer" parent="."]
 wait_time = 0.1
