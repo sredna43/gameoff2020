@@ -20,6 +20,6 @@ func run(player: KinematicBody2D):
     # Return next state
     if player.is_on_floor():
         return "idle" if player.horizontal_input == 0 else "walk"
-    if player.grounded and player.jumping:
-        return "jump"
+#    if player.grounded and player.jumping:
+#        return "jump"
     return ""

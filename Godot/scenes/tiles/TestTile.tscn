@@ -4,6 +4,8 @@
 extents = Vector2( 244.675, 19.1217 )
 
 [node name="Node2D" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 15
 __meta__ = {
 "_edit_group_": true
 }
