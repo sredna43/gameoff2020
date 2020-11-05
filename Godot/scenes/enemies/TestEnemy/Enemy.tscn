@@ -54,7 +54,6 @@ collision_mask = 8
 
 [node name="HitBoxCollision" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource( 2 )
-disabled = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -10.0

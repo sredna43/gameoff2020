@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://scenes/enemies/TestEnemy/scripts/controller.gd"
+}, {
 "base": "Node2D",
 "class": "EnemyFSM",
 "language": "GDScript",
@@ -33,19 +38,14 @@ _global_script_classes=[ {
 "class": "PlayerState",
 "language": "GDScript",
 "path": "res://scenes/player/scripts/state_machine/player_state.gd"
-}, {
-"base": "KinematicBody2D",
-"class": "TestEnemy",
-"language": "GDScript",
-"path": "res://scenes/enemies/TestEnemy/scripts/controller.gd"
 } ]
 _global_script_class_icons={
+"Enemy": "",
 "EnemyFSM": "",
 "EnemyState": "",
 "Player": "",
 "PlayerFSM": "",
-"PlayerState": "",
-"TestEnemy": ""
+"PlayerState": ""
 }
 
 [application]

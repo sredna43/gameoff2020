@@ -1,7 +1,7 @@
 # Controls the movement of the TestEnemy
 
 extends KinematicBody2D
-class_name TestEnemy
+class_name Enemy
 
 # Speed variables
 export var walk_speed: float = 150
@@ -46,6 +46,10 @@ func move():
     if is_on_floor():
         ground_timer.start()
     velocity = move_and_slide(velocity, Vector2.UP)
+    
+# Hit by a bullet
+func hit():
+    print("Enemy has been hit!")
 
 # Setters and Getters
 

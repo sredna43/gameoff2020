@@ -35,7 +35,6 @@ func run() -> void:
 #enter the active state
 func change_state(next_state_tag: String) -> void:
     var next_state = states.get(next_state_tag)
-    print(next_state_tag)
     if next_state:
         previous_state_tag = active_state.tag
         active_state.exit(player)
