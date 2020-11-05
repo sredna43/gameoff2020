@@ -1,18 +1,24 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/enemies/TestEnemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tiles/TestTile.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/levels/timer_text/Timer.tscn" type="PackedScene" id=4]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2( 839.602, 319.902 )
 
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
-position = Vector2( 29.6543, 28.0062 )
+position = Vector2( 949.615, 447.532 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -675.842, -2.3226 )
+position = Vector2( 128.749, 522.085 )
 
-[node name="Node2D" parent="." instance=ExtResource( 2 )]
-position = Vector2( -347.012, 260.571 )
+[node name="Platform" parent="." instance=ExtResource( 2 )]
+position = Vector2( 519.01, 596.192 )
 scale = Vector2( 2.32, 1 )
+
+[node name="OxygenTimer" parent="." instance=ExtResource( 4 )]
+margin_left = 903.504
+margin_top = 4.56921
+margin_right = 1020.5
+margin_bottom = 38.5692
