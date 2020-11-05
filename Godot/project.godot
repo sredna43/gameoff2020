@@ -10,6 +10,21 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://scenes/enemies/TestEnemy/scripts/controller.gd"
+}, {
+"base": "Node2D",
+"class": "EnemyFSM",
+"language": "GDScript",
+"path": "res://scenes/enemies/TestEnemy/scripts/state_machine/enemy_fsm.gd"
+}, {
+"base": "Node2D",
+"class": "EnemyState",
+"language": "GDScript",
+"path": "res://scenes/enemies/TestEnemy/scripts/state_machine/enemy_state.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://scenes/player/scripts/controller.gd"
@@ -25,6 +40,9 @@ _global_script_classes=[ {
 "path": "res://scenes/player/scripts/state_machine/player_state.gd"
 } ]
 _global_script_class_icons={
+"Enemy": "",
+"EnemyFSM": "",
+"EnemyState": "",
 "Player": "",
 "PlayerFSM": "",
 "PlayerState": ""
@@ -74,6 +92,17 @@ player_run={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":2,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_render/layer_1="player"
+2d_physics/layer_1="player"
+2d_render/layer_2="enemy"
+2d_physics/layer_2="enemy"
+2d_render/layer_3="world"
+2d_physics/layer_3="world"
+2d_render/layer_4="bullet"
+2d_physics/layer_4="bullet"
 
 [rendering]
 
