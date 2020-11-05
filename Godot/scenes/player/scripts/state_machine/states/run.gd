@@ -8,6 +8,8 @@ func run(player: KinematicBody2D) -> String:
     player.move()
     
     # Return next state
+    if player.horizontal_input == 0:
+        return "idle"
     if not player.is_on_floor():
         return "air"
     if Input.is_action_just_released("player_run"):

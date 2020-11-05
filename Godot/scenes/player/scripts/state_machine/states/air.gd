@@ -22,4 +22,7 @@ func run(player: KinematicBody2D):
         return "idle" if player.horizontal_input == 0 else "walk"
 #    if player.grounded and player.jumping:
 #        return "jump"
+    if player.can_double_jump and Input.is_action_just_pressed("player_jump"):
+        player.can_double_jump = false
+        return "jump"
     return ""

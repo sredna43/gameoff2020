@@ -36,6 +36,7 @@ var jumping: bool = false setget , _get_jumping
 
 # State Machine (Variables)
 onready var state_machine: PlayerFSM = $States
+var can_double_jump: bool = true
 
 
 # Core functions 
@@ -68,6 +69,7 @@ func _update_inputs() -> void:
         shoot_timer.start()
     if is_on_floor():
         velocity.y = 0
+        can_double_jump = true
         floor_timer.start()
 
 func apply_gravity():
