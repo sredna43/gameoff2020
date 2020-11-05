@@ -3,6 +3,9 @@
 extends KinematicBody2D
 class_name Enemy
 
+#descriptive variables
+export var enemy_health: float = 100
+
 # Speed variables
 export var walk_speed: float = 150
 export var gravity: float = 40
@@ -49,6 +52,9 @@ func move():
     
 # Hit by a bullet
 func hit():
+    enemy_health -= 20
+    if enemy_health == 0:
+        print("dead")
     print("Enemy has been hit!")
 
 # Setters and Getters

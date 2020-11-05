@@ -8,8 +8,10 @@ class_name Player
 signal shoot
 
 # Player Movement (Variables)
-export var walk_speed: float = 350
+export var walk_speed: float = 300
 export var run_speed: float = 500
+export var ground_accel: float = 100
+export var friction: float = 0.2
 export var air_accel: float = 45
 export var gravity: float = 40
 export var terminal_velocity: float = 800
@@ -46,6 +48,7 @@ func _physics_process(_delta: float) -> void:
     state_machine.run()
 
 func move():
+    update_look_direction()
     velocity = move_and_slide(velocity, Vector2.UP)
     
 func _update_inputs() -> void:
@@ -70,6 +73,17 @@ func _update_inputs() -> void:
 func apply_gravity():
     if velocity.y <= terminal_velocity:
         velocity.y += gravity
+        
+# Animations and looks
+
+func update_look_direction():
+    if direction == -1:
+        pass
+    if direction == 1:
+        pass
+    if velocity.x and state_machine.active_state.tag != "air":
+        if direction != velocity.x/abs(velocity.x):
+            print("kick turn", direction)
 
 
 # Setters and Getters
