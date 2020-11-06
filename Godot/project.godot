@@ -60,6 +60,10 @@ config/name="GameOff 2020"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [input]
 
 player_left={
