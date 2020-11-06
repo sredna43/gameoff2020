@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/enemies/TestEnemy/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/tiles/powerups/AmmoSupply.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/tiles/TestTile.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/levels/test_level/test_level.gd" type="Script" id=7]
+
+[node name="TestLevel" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 7 )
+
+[node name="Enemy" parent="." instance=ExtResource( 2 )]
+pause_mode = 1
+position = Vector2( 949.615, 447.532 )
+
+[node name="Platform" parent="." instance=ExtResource( 6 )]
+pause_mode = 1
+position = Vector2( 519.01, 596.192 )
+scale = Vector2( 2.32, 1 )
+
+[node name="AmmoSupply" parent="." instance=ExtResource( 5 )]
+position = Vector2( 331.126, 388.061 )

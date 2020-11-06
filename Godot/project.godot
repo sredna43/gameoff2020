@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "AmmoSupply",
 "language": "GDScript",
-"path": "res://scenes/tiles/scripts/ammo_supply.gd"
+"path": "res://scenes/tiles/powerups/scripts/ammo_supply.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Enemy",
@@ -57,7 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GameOff 2020"
-run/main_scene="res://scenes/levels/TestWorld.tscn"
+run/main_scene="res://scenes/levels/test_level/TestLevel.tscn"
 config/icon="res://icon.png"
 
 [input]

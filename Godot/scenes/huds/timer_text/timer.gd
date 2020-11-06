@@ -5,7 +5,7 @@ var s = 0
 var m = 0
 
 
-func _process(delta):
+func _process(_delta):
     if ms > 9:
         s += 1
         ms = 0
