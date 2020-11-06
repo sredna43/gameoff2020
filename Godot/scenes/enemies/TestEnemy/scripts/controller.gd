@@ -55,6 +55,7 @@ func hit():
     enemy_health -= 1
     if enemy_health == 0:
         print("dead")
+        queue_free()
     print("Enemy has been hit!")
 
 # Setters and Getters
