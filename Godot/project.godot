@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/enemies/TestEnemy/scripts/state_machine/enemy_state.gd"
 }, {
+"base": "Area2D",
+"class": "HealthSupply",
+"language": "GDScript",
+"path": "res://scenes/tiles/powerups/scripts/health_supply.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -49,6 +54,7 @@ _global_script_class_icons={
 "Enemy": "",
 "EnemyFSM": "",
 "EnemyState": "",
+"HealthSupply": "",
 "Player": "",
 "PlayerFSM": "",
 "PlayerState": ""

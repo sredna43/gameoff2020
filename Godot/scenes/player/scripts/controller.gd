@@ -130,4 +130,5 @@ func add_ammo(amount: int) -> void:
 
 func add_health(amount: int) -> void:
     health = clamp(health + amount, 0, max_health)
+
     print("added " + str(amount) + " health to player, total health = " + str(health))
