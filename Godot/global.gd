@@ -2,13 +2,13 @@ extends Node
 
 ### Game variables ###
 
-var levels: PoolStringArray = [
+var levels: Array = [
     "res://scenes/levels/test_level/TestLevel.tscn"
    ]
-var current_level: String = levels[0]
 
-var cempleted_levels: Array = []
+var completed_levels: Array = []
 
+var current_level_path: String = "" setget ,_get_current_level_path
 
 ### Player variables ###
 
@@ -16,3 +16,17 @@ var cempleted_levels: Array = []
 
 ### Helper functions ###
 
+func goto_scene(path):
+    call_deferred("_deffered_goto_scene", path)
+    
+func _deffered_goto_scene(path):
+    current_level_path = path
+    print(path)
+    var packed_scene = ResourceLoader.load(path)
+    var instanced_scene = packed_scene.instance()
+    
+    get_tree().get_root().add_child(instanced_scene)
+    get_tree().set_current_scene(instanced_scene)
+
+func _get_current_level_path() -> String:
+    return current_level_path

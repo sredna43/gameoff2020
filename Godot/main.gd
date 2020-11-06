@@ -5,11 +5,9 @@ extends Node
 onready var global = get_node("/root/Global")
 onready var _pause_menu = $PauseMenu
 
-var on_level: Node2D
-
 func _ready() -> void:
-    on_level = get_node(global.current_level)
-    add_child(on_level)
+    global.current_level_path = global.levels[0]
+    global.goto_scene(global.current_level_path)
 
 func _unhandled_input(event):
     if event.is_action_pressed("pause_button"):
