@@ -52,7 +52,7 @@ func move():
     update_look_direction()
     velocity = move_and_slide(velocity, Vector2.UP)
     
-func _update_inputs() -> void:
+func _update_inputs() -> void:   
     horizontal_input = (
         int(Input.is_action_pressed("player_right"))
         - int(Input.is_action_pressed("player_left")))
