@@ -8,8 +8,10 @@ class_name Player
 signal shoot
 
 # Player Movement (Variables)
-export var walk_speed: float = 350
+export var walk_speed: float = 300
 export var run_speed: float = 500
+export var ground_accel: float = 100
+export var friction: float = 0.2
 export var air_accel: float = 45
 export var gravity: float = 40
 export var terminal_velocity: float = 800
@@ -34,6 +36,7 @@ var jumping: bool = false setget , _get_jumping
 
 # State Machine (Variables)
 onready var state_machine: PlayerFSM = $States
+var can_double_jump: bool = true
 
 
 # Core functions 
@@ -46,9 +49,10 @@ func _physics_process(_delta: float) -> void:
     state_machine.run()
 
 func move():
+    update_look_direction()
     velocity = move_and_slide(velocity, Vector2.UP)
     
-func _update_inputs() -> void:
+func _update_inputs() -> void:   
     horizontal_input = (
         int(Input.is_action_pressed("player_right"))
         - int(Input.is_action_pressed("player_left")))
@@ -65,11 +69,23 @@ func _update_inputs() -> void:
         shoot_timer.start()
     if is_on_floor():
         velocity.y = 0
+        can_double_jump = true
         floor_timer.start()
 
 func apply_gravity():
     if velocity.y <= terminal_velocity:
         velocity.y += gravity
+        
+# Animations and looks
+
+func update_look_direction():
+    if direction == -1:
+        pass
+    if direction == 1:
+        pass
+    if velocity.x and state_machine.active_state.tag != "air":
+        if direction != velocity.x/abs(velocity.x):
+            print("kick turn", direction)
 
 
 # Setters and Getters
