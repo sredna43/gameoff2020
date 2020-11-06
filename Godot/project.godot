@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "AmmoSupply",
 "language": "GDScript",
-"path": "res://scenes/tiles/ammo_supply.gd"
+"path": "res://scenes/tiles/scripts/ammo_supply.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Enemy",

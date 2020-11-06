@@ -127,3 +127,7 @@ func _get_jumping() -> bool:
     
 func add_ammo(amount: int) -> void:
     ammo = clamp(ammo + amount, 0, max_ammo)
+
+func add_health(amount: int) -> void:
+    health = clamp(health + amount, 0, max_health)
+    print("added " + str(amount) + " health to player, total health = " + str(health))

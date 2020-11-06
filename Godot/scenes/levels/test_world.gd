@@ -1,6 +1,5 @@
 extends Node2D
 
-
 onready var _pause_menu = $PauseMenu
 
 func _unhandled_input(event):
