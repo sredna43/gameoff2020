@@ -12,6 +12,12 @@ var current_level_path: String = "" setget ,_get_current_level_path
 
 ### Player variables ###
 
+# Health and ammo
+var max_health: int = 5
+var max_ammo: int = 100
+var starting_ammo: int = 20
+var health
+var ammo
 
 
 ### Helper functions ###

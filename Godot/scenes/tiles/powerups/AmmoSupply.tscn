@@ -22,4 +22,15 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Name" type="Label" parent="."]
+margin_left = -4.40971
+margin_top = -6.61459
+margin_right = 35.5903
+margin_bottom = 24.3854
+text = "A
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="body_entered" from="." to="." method="_on_AmmoSupply_body_entered"]

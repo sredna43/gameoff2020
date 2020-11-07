@@ -7,6 +7,9 @@ class_name Player
 # Signals
 signal shoot
 
+# Global Variables
+onready var global: Node = get_node("/root/Global")
+
 # Player Movement (Variables)
 export var walk_speed: float = 300
 export var run_speed: float = 500
@@ -38,20 +41,13 @@ var jumping: bool = false setget , _get_jumping
 onready var state_machine: PlayerFSM = $States
 var can_double_jump: bool = true
 
-# Health and ammo (Variables)
-export var max_health: int = 10
-export var max_ammo: int = 100
-export var starting_ammo: int = 20
-var health
-var ammo
-
 
 # Core functions 
 
 func _ready() -> void:
     state_machine.init(self)
-    health = max_health
-    ammo = starting_ammo
+    global.health = global.max_health
+    global.ammo = global.starting_ammo
     
 func _physics_process(_delta: float) -> void:
     _update_inputs()
@@ -73,9 +69,9 @@ func _update_inputs() -> void:
     if Input.is_action_just_pressed("player_jump"):
         jump_timer.start()
     # Shoot
-    if Input.is_action_pressed("player_shoot") and shoot_timer.is_stopped() and ammo:
-        ammo = clamp(ammo-1, 0, max_ammo)
-        print(ammo)
+    if Input.is_action_pressed("player_shoot") and shoot_timer.is_stopped() and global.ammo:
+        global.ammo = clamp(global.ammo-1, 0, global.max_ammo)
+        print(global.ammo)
         emit_signal("shoot", direction)
         shoot_timer.start()
     if is_on_floor():
@@ -126,9 +122,9 @@ func _get_jumping() -> bool:
     return jumping
     
 func add_ammo(amount: int) -> void:
-    ammo = clamp(ammo + amount, 0, max_ammo)
+    global.ammo = clamp(global.ammo + amount, 0, global.max_ammo)
 
 func add_health(amount: int) -> void:
-    health = clamp(health + amount, 0, max_health)
+    global.health = clamp(global.health + amount, 0, global.max_health)
 
-    print("added " + str(amount) + " health to player, total health = " + str(health))
+    print("added " + str(amount) + " health to player, total health = " + str(global.health))

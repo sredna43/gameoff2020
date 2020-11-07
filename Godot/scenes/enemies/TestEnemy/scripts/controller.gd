@@ -4,7 +4,7 @@ extends KinematicBody2D
 class_name Enemy
 
 #descriptive variables
-export var enemy_health: int = 5
+export var enemy_health: int = 3
 
 # Speed variables
 export var walk_speed: float = 150

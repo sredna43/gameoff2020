@@ -2,7 +2,7 @@
 
 extends Node
 
-onready var global = get_node("/root/Global")
+onready var global: Node = get_node("/root/Global")
 onready var _pause_menu = $PauseMenu
 
 func _ready() -> void:

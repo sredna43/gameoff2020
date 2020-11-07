@@ -20,4 +20,14 @@ color = Color( 0.764706, 0.156863, 0.670588, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Name" type="Label" parent="."]
+margin_left = -4.76758
+margin_top = -5.82705
+margin_right = 37.2324
+margin_bottom = 8.17295
+text = "H"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="body_entered" from="." to="." method="_on_HealthSupply_body_entered"]
