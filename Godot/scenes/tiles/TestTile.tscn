@@ -3,7 +3,8 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 244.675, 19.1217 )
 
-[node name="Node2D" type="StaticBody2D"]
+[node name="TestTile" type="StaticBody2D"]
+scale = Vector2( 1.88, 1 )
 collision_layer = 4
 collision_mask = 15
 __meta__ = {

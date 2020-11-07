@@ -6,20 +6,22 @@ class_name Player
 
 # Signals
 signal shoot
+signal restart_level(checkpoint)
 
 # Global Variables
 onready var global: Node = get_node("/root/Global")
 
 # Player Movement (Variables)
-export var walk_speed: float = 300
-export var run_speed: float = 500
-export var ground_accel: float = 100
+export var walk_speed: float = 400
+export var run_speed: float = 550
+export var walk_accel: float = 55
+export var run_accel: float = 30
 export var friction: float = 0.2
-export var air_accel: float = 45
+export var air_accel: float = 30
 export var gravity: float = 40
 export var terminal_velocity: float = 800
-export var jump_power: float = 600
-export var run_jump_power: float = 650
+export var jump_power: float = 700
+export var run_jump_power: float = 750
 export var air_resistance: float = 0.05
 var velocity: Vector2 = Vector2.ZERO
 var vx: float = 0 setget _set_vx, _get_vx
@@ -52,6 +54,8 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
     _update_inputs()
     state_machine.run()
+    if position.y > 1000:
+        emit_signal("restart_level", 0)
 
 func move():
     update_look_direction()
@@ -68,15 +72,15 @@ func _update_inputs() -> void:
     # Jump
     if Input.is_action_just_pressed("player_jump"):
         jump_timer.start()
+        if state_machine.active_state.tag != "air":
+            can_double_jump = true
     # Shoot
     if Input.is_action_pressed("player_shoot") and shoot_timer.is_stopped() and global.ammo:
         global.ammo = clamp(global.ammo-1, 0, global.max_ammo)
-        print(global.ammo)
         emit_signal("shoot", direction)
         shoot_timer.start()
     if is_on_floor():
         velocity.y = 0
-        can_double_jump = true
         floor_timer.start()
 
 func apply_gravity():
@@ -90,9 +94,10 @@ func update_look_direction():
         pass
     if direction == 1:
         pass
-    if velocity.x and state_machine.active_state.tag != "air":
+    if velocity.x and state_machine.active_state.tag in ["walk", "run"]:
         if direction != velocity.x/abs(velocity.x):
-            print("kick turn", direction)
+            # print("kick turn", direction)
+            pass
 
 
 # Setters and Getters

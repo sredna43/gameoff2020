@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/player/scripts/controller.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player/scripts/state_machine/states/walk.gd" type="Script" id=2]
@@ -9,7 +9,12 @@
 [ext_resource path="res://scenes/player/scripts/state_machine/states/air.gd" type="Script" id=7]
 [ext_resource path="res://scenes/player/scripts/bullet_spawner.gd" type="Script" id=8]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 3.35814 )
+
 [sub_resource type="CapsuleShape2D" id=1]
+radius = 10.0955
+height = 14.1595
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 2.48, 2.48 )
@@ -51,9 +56,6 @@ one_shot = true
 wait_time = 0.25
 one_shot = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
-
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -10.0
 margin_top = -20.0
@@ -62,6 +64,14 @@ margin_bottom = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Floor" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0847724, 16.6993 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
+
+[node name="Capsule" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
 
 [node name="BulletSpawnerLocation" type="Position2D" parent="."]
 __meta__ = {

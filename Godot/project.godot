@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "AmmoSupply",
 "language": "GDScript",
-"path": "res://scenes/tiles/powerups/scripts/ammo_supply.gd"
+"path": "res://scenes/powerups/scripts/ammo_supply.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Enemy",
@@ -32,7 +32,12 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "HealthSupply",
 "language": "GDScript",
-"path": "res://scenes/tiles/powerups/scripts/health_supply.gd"
+"path": "res://scenes/powerups/scripts/health_supply.gd"
+}, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://scenes/levels/level_controller.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -55,6 +60,7 @@ _global_script_class_icons={
 "EnemyFSM": "",
 "EnemyState": "",
 "HealthSupply": "",
+"Level": "",
 "Player": "",
 "PlayerFSM": "",
 "PlayerState": ""

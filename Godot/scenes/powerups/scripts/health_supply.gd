@@ -1,7 +1,7 @@
 extends Area2D
 class_name HealthSupply
 
-export var supply_size: int = 5
+export var supply_size: int = 2
 
 func _on_HealthSupply_body_entered(body: Node) -> void:
     if body is Player:

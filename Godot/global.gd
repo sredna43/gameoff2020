@@ -22,10 +22,10 @@ var ammo
 
 ### Helper functions ###
 
-func goto_scene(path):
+func goto_scene(path: String) -> void:
     call_deferred("_deffered_goto_scene", path)
     
-func _deffered_goto_scene(path):
+func _deffered_goto_scene(path: String) -> void:
     current_level_path = path
     print(path)
     var packed_scene = ResourceLoader.load(path)
@@ -36,3 +36,6 @@ func _deffered_goto_scene(path):
 
 func _get_current_level_path() -> String:
     return current_level_path
+    
+func restart_level() -> void:
+    goto_scene(current_level_path)

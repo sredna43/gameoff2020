@@ -4,7 +4,8 @@ extends PlayerState
 
 func run(player: KinematicBody2D) -> String:
     player.apply_gravity()
-    player.vx = player.horizontal_input * player.walk_speed if player.horizontal_input != 0 else player.vx
+    player.vx += player.horizontal_input * player.walk_accel
+    player.vx = clamp(player.vx, -player.walk_speed, player.walk_speed)
     player.move()
     
     # Return the next state
