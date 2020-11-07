@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/tiles/TestTile.tscn" type="PackedScene" id=6]
 
 [node name="TestLevel" type="Node2D"]
-pause_mode = 2
+pause_mode = 1
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
 position = Vector2( 949.615, 447.532 )
