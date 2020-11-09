@@ -26,7 +26,7 @@ export var air_resistance: float = 0.05
 var velocity: Vector2 = Vector2.ZERO
 var vx: float = 0 setget _set_vx, _get_vx
 var vy: float = 0 setget _set_vy, _get_vy
-var direction: int = 1
+var direction: Vector2 = Vector2(1,0)
 
 # Input (Variables)
 var horizontal_input: int = 0
@@ -68,7 +68,7 @@ func _update_inputs() -> void:
     vertical_input = (
         int(Input.is_action_pressed("player_jump"))
         - int(Input.is_action_pressed("player_down")))
-    direction = horizontal_input if horizontal_input else direction
+    direction.x = horizontal_input if horizontal_input else direction.x
     # Jump
     if Input.is_action_just_pressed("player_jump"):
         jump_timer.start()
@@ -90,12 +90,12 @@ func apply_gravity():
 # Animations and looks
 
 func update_look_direction():
-    if direction == -1:
+    if direction.x == -1:
         pass
-    if direction == 1:
+    if direction.x == 1:
         pass
     if velocity.x and state_machine.active_state.tag in ["walk", "run"]:
-        if direction != velocity.x/abs(velocity.x):
+        if direction.x != velocity.x/abs(velocity.x):
             # print("kick turn", direction)
             pass
 
