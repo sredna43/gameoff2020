@@ -41,7 +41,7 @@ var jumping: bool = false setget , _get_jumping
 
 # State Machine (Variables)
 onready var state_machine: PlayerFSM = $States
-var can_double_jump: bool = true
+var can_double_jump: bool = false
 
 
 # Core functions 
@@ -68,18 +68,19 @@ func _update_inputs() -> void:
     vertical_input = (
         int(Input.is_action_pressed("player_jump"))
         - int(Input.is_action_pressed("player_down")))
-    direction.x = horizontal_input if horizontal_input else direction.x
+    direction.x = float(horizontal_input) if horizontal_input else direction.x
+    
     # Jump
     if Input.is_action_just_pressed("player_jump"):
         jump_timer.start()
-        if state_machine.active_state.tag != "air":
-            can_double_jump = true
-    # Shoot
-    if Input.is_action_pressed("player_shoot") and shoot_timer.is_stopped() and global.ammo:
-        fire()
+        
     if is_on_floor():
         velocity.y = 0
         floor_timer.start()
+
+    # Shoot
+    if Input.is_action_pressed("player_shoot") and shoot_timer.is_stopped() and global.ammo:
+        fire()
 
 func apply_gravity():
     if velocity.y <= terminal_velocity:

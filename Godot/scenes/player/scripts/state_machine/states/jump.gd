@@ -8,5 +8,6 @@ func run(player: KinematicBody2D):
     else:
         player.vy = -player.jump_power
     player.move()
+        
     return "air"
 

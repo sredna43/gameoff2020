@@ -17,12 +17,18 @@ func run(player: KinematicBody2D):
     player.apply_gravity()
     player.move()
     
+    if player.state_machine.previous_state_tag in ["jump"]:
+        player.can_double_jump = true
+    else:
+        player.can_double_jump = false
+    
     # Return next state
     if player.is_on_floor():
         return "idle" if player.horizontal_input == 0 else "walk"
 #    if player.grounded and player.jumping:
 #        return "jump"
     if player.can_double_jump and Input.is_action_just_pressed("player_jump"):
+        print(player.state_machine.previous_state_tag)
         player.can_double_jump = false
         return "jump"
     return ""
