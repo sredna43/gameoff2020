@@ -57,7 +57,7 @@ func _ready() -> void:
     if Input.get_joy_name(0):
         controller_id = 0
         controller_is_connected = true
-        print(Input.get_joy_name(controller_id))
+        print("Controller connected: " + str(Input.get_joy_name(controller_id)))
     
 func _physics_process(_delta: float) -> void:
     _update_inputs()
@@ -106,7 +106,7 @@ func fire() -> void:
     var u = Vector2.UP
     var l = Vector2.LEFT
     var d = Vector2.DOWN
-    if not controller_is_connected:
+    if not controller_is_connected or Input.is_mouse_button_pressed(BUTTON_LEFT):
         var vector_to_mouse: Vector2 = get_local_mouse_position()
         var x = vector_to_mouse.x
         var y = -vector_to_mouse.y
