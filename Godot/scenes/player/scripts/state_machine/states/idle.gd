@@ -13,9 +13,11 @@ func run(player: KinematicBody2D) -> String:
     
     # Return the next state
     if not player.is_on_floor():
+        player.can_double_jump = false
         return "air"
     if player.horizontal_input != 0:
         return "walk"
     if player.jumping:
+        player.can_double_jump = true
         return "jump"
     return ""

@@ -31,6 +31,8 @@ var direction: Vector2 = Vector2(1,0)
 # Input (Variables)
 var horizontal_input: int = 0
 var vertical_input: int = 0
+var controller_is_connected: bool = false
+var controller_id: int = 0
 
 # Timers
 onready var jump_timer: Timer = $Timers/JumpTimer
@@ -50,6 +52,11 @@ func _ready() -> void:
     state_machine.init(self)
     global.health = global.max_health
     global.ammo = global.starting_ammo
+    Input.connect("joy_connection_changed", self, "_on_controller_connected")
+    if Input.get_joy_name(0):
+        controller_id = 0
+        controller_is_connected = true
+        print(Input.get_joy_name(controller_id))
     
 func _physics_process(_delta: float) -> void:
     _update_inputs()
@@ -66,8 +73,8 @@ func _update_inputs() -> void:
         int(Input.is_action_pressed("player_right"))
         - int(Input.is_action_pressed("player_left")))
     vertical_input = (
-        int(Input.is_action_pressed("player_jump"))
-        - int(Input.is_action_pressed("player_down")))
+        int(Input.is_action_pressed("player_down"))
+        - int(Input.is_action_pressed("player_up")))
     direction.x = float(horizontal_input) if horizontal_input else direction.x
     
     # Jump
@@ -90,29 +97,49 @@ func fire() -> void:
     if not global.dev:
         global.ammo = clamp(global.ammo-1, 0, global.max_ammo)
     var shoot_dir: Vector2
-    var vector_to_mouse: Vector2 = get_local_mouse_position()
-    var x = vector_to_mouse.x
-    var y = -vector_to_mouse.y
     var ur = Vector2(1,-1).normalized()
     var dr = Vector2(1,1).normalized()
     var ul = Vector2(-1,-1).normalized()
     var dl = Vector2(-1,1).normalized()
-    if y <= 0.5 * x and y > -0.5 * x: #RIGHT
-        shoot_dir = Vector2.RIGHT
-    if y > 0.5 * x and y <= 2 * x: #UP-RIGHT
-        shoot_dir = ur
-    if y > 2 * x and y >= -2 * x: #UP
-        shoot_dir = Vector2.UP
-    if y < -2 * x and y >= -0.5 * x: #UP-LEFT
-        shoot_dir = ul
-    if y < -0.5 * x and y >= 0.5 * x: #LEFT
-        shoot_dir = Vector2.LEFT
-    if y < 0.5 * x and y >= 2 * x: #DOWN-LEFT
-        shoot_dir = dl
-    if y < 2 * x and y <= -2 * x: #DOWN
-        shoot_dir = Vector2.DOWN
-    if y > -2 * x and y <= -0.5 * x: #DOWN-RIGHT
-        shoot_dir = dr
+    var r = Vector2.RIGHT
+    var u = Vector2.UP
+    var l = Vector2.LEFT
+    var d = Vector2.DOWN
+    if not controller_is_connected:
+        var vector_to_mouse: Vector2 = get_local_mouse_position()
+        var x = vector_to_mouse.x
+        var y = -vector_to_mouse.y
+        if y <= 0.5 * x and y > -0.5 * x: #RIGHT
+            shoot_dir = r
+        if y > 0.5 * x and y <= 2 * x: #UP-RIGHT
+            shoot_dir = ur
+        if y > 2 * x and y >= -2 * x: #UP
+            shoot_dir = u
+        if y < -2 * x and y >= -0.5 * x: #UP-LEFT
+            shoot_dir = ul
+        if y < -0.5 * x and y >= 0.5 * x: #LEFT
+            shoot_dir = l
+        if y < 0.5 * x and y >= 2 * x: #DOWN-LEFT
+            shoot_dir = dl
+        if y < 2 * x and y <= -2 * x: #DOWN
+            shoot_dir = d
+        if y > -2 * x and y <= -0.5 * x: #DOWN-RIGHT
+            shoot_dir = dr
+    else:
+        if horizontal_input > 0: #RIGHT
+            if abs(vertical_input) < 0.4:
+                shoot_dir = r
+            if vertical_input > 0.4:
+                shoot_dir = dr
+            if vertical_input < -0.4:
+                shoot_dir = ur
+        if horizontal_input < 0: #LEFT
+            if abs(vertical_input) < 0.4:
+                shoot_dir = l
+            if vertical_input > 0.4:
+                shoot_dir = dl
+            if vertical_input < -0.4:
+                shoot_dir = ul
     emit_signal("shoot", shoot_dir)
     shoot_timer.start()
     
@@ -163,3 +190,11 @@ func add_health(amount: int) -> void:
     global.health = clamp(global.health + amount, 0, global.max_health)
 
     print("added " + str(amount) + " health to player, total health = " + str(global.health))
+
+func _on_controller_connected(device_id, connected):
+    if connected:
+        controller_is_connected = connected
+        controller_id = device_id
+        print("Controller connected: " + str(Input.get_joy_name(device_id)))
+    else:
+        print("It is recommended to use a controller to play this game")

@@ -12,7 +12,7 @@ func _ready() -> void:
     
 
 func _physics_process(_delta: float) -> void:
-    if is_on_wall():
+    if is_on_wall() or is_on_floor():
         queue_free()
     else:
         velocity = global.bullet_speed * direction
