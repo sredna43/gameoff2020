@@ -126,6 +126,7 @@ func fire() -> void:
         if y > -2 * x and y <= -0.5 * x: #DOWN-RIGHT
             shoot_dir = dr
     else:
+        shoot_dir = direction
         if horizontal_input > 0: #RIGHT
             if abs(vertical_input) < 0.4:
                 shoot_dir = r
@@ -140,6 +141,11 @@ func fire() -> void:
                 shoot_dir = dl
             if vertical_input < -0.4:
                 shoot_dir = ul
+        if horizontal_input == 0: #UP/DOWN
+            if vertical_input > 0.4:
+                shoot_dir = d
+            if vertical_input < -0.4:
+                shoot_dir = u
     emit_signal("shoot", shoot_dir)
     shoot_timer.start()
     
