@@ -2,6 +2,8 @@ extends Node
 
 ### Game variables ###
 
+var dev: bool = true
+
 var levels: Array = [
     "res://scenes/levels/test_level/TestLevel.tscn"
    ]
@@ -18,6 +20,7 @@ var max_ammo: int = 100
 var starting_ammo: int = 20
 var health
 var ammo
+var bullet_speed: int = 1250
 
 
 ### Helper functions ###
@@ -39,3 +42,6 @@ func _get_current_level_path() -> String:
     
 func restart_level() -> void:
     goto_scene(current_level_path)
+    
+func win_game() -> void:
+    print("Winner!")

@@ -9,10 +9,10 @@
 [ext_resource path="res://scenes/player/scripts/state_machine/states/air.gd" type="Script" id=7]
 [ext_resource path="res://scenes/player/scripts/bullet_spawner.gd" type="Script" id=8]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 3.35814 )
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 10.0955
 height = 14.1595
 
@@ -53,7 +53,7 @@ wait_time = 0.06
 one_shot = true
 
 [node name="ShootTimer" type="Timer" parent="Timers"]
-wait_time = 0.25
+wait_time = 0.2
 one_shot = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -67,11 +67,10 @@ __meta__ = {
 
 [node name="Floor" type="CollisionShape2D" parent="."]
 position = Vector2( 0.0847724, 16.6993 )
-scale = Vector2( 1, 1 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Capsule" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="BulletSpawnerLocation" type="Position2D" parent="."]
 __meta__ = {
