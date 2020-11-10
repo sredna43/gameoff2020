@@ -52,6 +52,7 @@ func _ready() -> void:
     state_machine.init(self)
     global.health = global.max_health
     global.ammo = global.starting_ammo
+# warning-ignore:return_value_discarded
     Input.connect("joy_connection_changed", self, "_on_controller_connected")
     if Input.get_joy_name(0):
         controller_id = 0
