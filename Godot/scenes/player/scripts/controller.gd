@@ -76,9 +76,7 @@ func _update_inputs() -> void:
             can_double_jump = true
     # Shoot
     if Input.is_action_pressed("player_shoot") and shoot_timer.is_stopped() and global.ammo:
-        global.ammo = clamp(global.ammo-1, 0, global.max_ammo)
-        emit_signal("shoot", direction)
-        shoot_timer.start()
+        fire()
     if is_on_floor():
         velocity.y = 0
         floor_timer.start()
@@ -87,6 +85,37 @@ func apply_gravity():
     if velocity.y <= terminal_velocity:
         velocity.y += gravity
         
+func fire() -> void:
+    if not global.dev:
+        global.ammo = clamp(global.ammo-1, 0, global.max_ammo)
+    var shoot_dir: Vector2
+    var vector_to_mouse: Vector2 = get_local_mouse_position()
+    var x = vector_to_mouse.x
+    var y = -vector_to_mouse.y
+    var ur = Vector2(1,-1).normalized()
+    var dr = Vector2(1,1).normalized()
+    var ul = Vector2(-1,-1).normalized()
+    var dl = Vector2(-1,1).normalized()
+    if y <= 0.5 * x and y > -0.5 * x: #RIGHT
+        shoot_dir = Vector2.RIGHT
+    if y > 0.5 * x and y <= 2 * x: #UP-RIGHT
+        shoot_dir = ur
+    if y > 2 * x and y >= -2 * x: #UP
+        shoot_dir = Vector2.UP
+    if y < -2 * x and y >= -0.5 * x: #UP-LEFT
+        shoot_dir = ul
+    if y < -0.5 * x and y >= 0.5 * x: #LEFT
+        shoot_dir = Vector2.LEFT
+    if y < 0.5 * x and y >= 2 * x: #DOWN-LEFT
+        shoot_dir = dl
+    if y < 2 * x and y <= -2 * x: #DOWN
+        shoot_dir = Vector2.DOWN
+    if y > -2 * x and y <= -0.5 * x: #DOWN-RIGHT
+        shoot_dir = dr
+    emit_signal("shoot", shoot_dir)
+    shoot_timer.start()
+    
+    
 # Animations and looks
 
 func update_look_direction():

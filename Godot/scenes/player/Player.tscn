@@ -53,7 +53,7 @@ wait_time = 0.06
 one_shot = true
 
 [node name="ShootTimer" type="Timer" parent="Timers"]
-wait_time = 0.25
+wait_time = 0.2
 one_shot = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
