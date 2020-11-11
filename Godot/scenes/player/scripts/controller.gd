@@ -154,10 +154,10 @@ func fire() -> void:
 # Animations and looks
 
 func update_look_direction():
-    if direction.x == -1:
-        pass
-    if direction.x == 1:
-        pass
+    if velocity.x < 0:
+        $root.scale.x = -0.05
+    if velocity.x > 0:
+        $root.scale.x = 0.05
     if velocity.x and state_machine.active_state.tag in ["walk", "run"]:
         if direction.x != velocity.x/abs(velocity.x):
             # print("kick turn", direction)
