@@ -6,6 +6,9 @@ extents = Vector2( 34.6078, 46.6708 )
 [node name="SmallBox" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 11
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -35.0

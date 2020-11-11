@@ -32,7 +32,7 @@ position = Vector2( 3713.99, 331.044 )
 position = Vector2( 5494.67, 432.492 )
 
 [node name="SmallBox6" parent="World" instance=ExtResource( 4 )]
-position = Vector2( 6028.61, 536.609 )
+position = Vector2( 5943.08, 422.574 )
 
 [node name="SmallBox" parent="World" instance=ExtResource( 4 )]
 position = Vector2( 652.018, 531.702 )
@@ -42,7 +42,7 @@ position = Vector2( 519.01, 596.192 )
 scale = Vector2( 2.32, 1 )
 
 [node name="Platform2" parent="World" instance=ExtResource( 6 )]
-position = Vector2( 7203.89, 588.183 )
+position = Vector2( 6879.6, 589.965 )
 scale = Vector2( 2.32, 1 )
 
 [node name="Platform3" parent="World" instance=ExtResource( 6 )]
@@ -50,7 +50,7 @@ position = Vector2( 4705.07, 302.527 )
 scale = Vector2( 2.32, 1 )
 
 [node name="Goal" parent="World" instance=ExtResource( 8 )]
-position = Vector2( 7705.46, 511.877 )
+position = Vector2( 7325.94, 510.095 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -63,15 +63,15 @@ position = Vector2( 4934.49, 214.873 )
 scale = Vector2( 3.12, 2.72 )
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource( 2 )]
-position = Vector2( 7596.16, 497.859 )
+position = Vector2( 6585.88, 497.859 )
 scale = Vector2( 3.12, 2.72 )
 
 [node name="Enemy5" parent="Enemies" instance=ExtResource( 2 )]
-position = Vector2( 7334.53, 500.528 )
+position = Vector2( 6976.39, 489.837 )
 scale = Vector2( 3.12, 2.72 )
 
 [node name="Enemy6" parent="Enemies" instance=ExtResource( 2 )]
-position = Vector2( 7136.97, 505.868 )
+position = Vector2( 6761.01, 489.832 )
 scale = Vector2( 3.12, 2.72 )
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 2 )]
