@@ -1,11 +1,27 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/hud/over.png" type="Texture" id=2]
+[ext_resource path="res://assets/hud/under.png" type="Texture" id=3]
 
 [node name="OxygenBar" type="VBoxContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+size_flags_horizontal = 12
+size_flags_vertical = 12
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name=" Label" type="MarginContainer" parent="."]
-margin_right = 1024.0
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 91.0
+margin_bottom = 110.0
+
+[node name="TextureProgress" type="TextureProgress" parent="CenterContainer"]
+margin_right = 91.0
+margin_bottom = 110.0
+value = 35.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 2 )
+fill_mode = 5
+radial_center_offset = Vector2( 10, 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,8 +1,8 @@
 extends Control
 
-onready var ammo_label = $HBoxContainer/Labels/AmmoLabel
-onready var health_label = $HBoxContainer/Labels/HealthLabel
-onready var oxygen_bar = $HBoxContainer/OxygenBar
+onready var ammo_label = $Labels/AmmoLabel
+onready var health_label = $Labels/HealthLabel
+onready var oxygen_bar = $OxygenBar
 
 onready var global: Node = get_node("/root/Global")
 
