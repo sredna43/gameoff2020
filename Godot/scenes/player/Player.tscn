@@ -98,64 +98,64 @@ scale = Vector2( 0.048, 0.048 )
 
 [node name="thigh_l" type="Sprite" parent="root"]
 modulate = Color( 0.866667, 0.866667, 0.866667, 1 )
-position = Vector2( 2.00354, -2.84536 )
-rotation = -0.773532
+position = Vector2( -5.00481, -1.43735 )
+rotation = 0.0663361
 scale = Vector2( 1, 1 )
 texture = ExtResource( 17 )
 offset = Vector2( -2.58917, 126.285 )
 
 [node name="shin_l" type="Sprite" parent="root/thigh_l"]
 position = Vector2( 14.951, 256.552 )
-rotation = 1.12061
+rotation = -0.0756136
+scale = Vector2( 1, 1 )
 texture = ExtResource( 19 )
 offset = Vector2( -5.00751, 51.5881 )
 
 [node name="foot_l" type="Sprite" parent="root/thigh_l/shin_l"]
-position = Vector2( -2.23274, 119.767 )
-rotation = -0.341579
+position = Vector2( -2.23273, 119.767 )
+rotation = 0.080599
+scale = Vector2( 1, 1 )
 texture = ExtResource( 18 )
 offset = Vector2( 29.0651, 4.30582 )
 
 [node name="bicep_l" type="Sprite" parent="root"]
 modulate = Color( 0.835294, 0.835294, 0.835294, 1 )
 light_mask = -2147483647
-position = Vector2( -0.27478, -271.591 )
-rotation = -0.800288
+position = Vector2( -3.85703, -257.11 )
+rotation = -0.0303954
 scale = Vector2( 1, 1 )
 texture = ExtResource( 10 )
 offset = Vector2( -5.61292, 39.767 )
 
 [node name="forearm_l" type="Sprite" parent="root/bicep_l"]
 position = Vector2( -14.4997, 78.5403 )
-rotation = -0.788165
+rotation = -0.400398
 scale = Vector2( 1, 1 )
 texture = ExtResource( 12 )
 offset = Vector2( 10.4839, 44.3548 )
 
 [node name="hand_l" type="Sprite" parent="root/bicep_l/forearm_l"]
 position = Vector2( 32.4577, 102.256 )
-rotation = -0.138056
+rotation = 0.0279002
 scale = Vector2( 0.789305, 0.789305 )
 texture = ExtResource( 11 )
 offset = Vector2( 23.3261, 22.6629 )
 
 [node name="antenna" type="Sprite" parent="root"]
-position = Vector2( -89.6741, -560.751 )
-rotation = -0.0653418
+position = Vector2( -59.6688, -543.842 )
+rotation = -0.021402
 scale = Vector2( 1, 1 )
 texture = ExtResource( 15 )
 offset = Vector2( -13.1418, -28.02 )
 
 [node name="hip" type="Node2D" parent="root"]
-scale = Vector2( 1, 1 )
 __meta__ = {
 "_edit_bone_": true
 }
 
 [node name="thigh_r" type="Sprite" parent="root/hip"]
 position = Vector2( -72.1439, 2.14479 )
-rotation = 0.424383
-scale = Vector2( 1, 1 )
+rotation = 0.144587
 texture = ExtResource( 17 )
 offset = Vector2( 42.6671, 135.064 )
 __meta__ = {
@@ -165,7 +165,7 @@ __meta__ = {
 
 [node name="shin_r" type="Sprite" parent="root/hip/thigh_r"]
 position = Vector2( 57.4047, 263.983 )
-rotation = -0.260224
+rotation = -6.46362
 texture = ExtResource( 19 )
 offset = Vector2( -2.48785, 51.7745 )
 __meta__ = {
@@ -174,7 +174,7 @@ __meta__ = {
 
 [node name="foot_r" type="Sprite" parent="root/hip/thigh_r/shin_r"]
 position = Vector2( -5.30855, 114.536 )
-rotation = -0.142288
+rotation = 0.0826873
 texture = ExtResource( 18 )
 offset = Vector2( 32.2337, 8.31368 )
 __meta__ = {
@@ -188,16 +188,17 @@ __meta__ = {
 }
 
 [node name="torso" type="Sprite" parent="root/hip"]
-position = Vector2( -0.274658, 0.279547 )
-scale = Vector2( 1, 1 )
+position = Vector2( -58.8251, 4.39663 )
+rotation = 0.0986363
 texture = ExtResource( 9 )
-offset = Vector2( 0, -135.763 )
+offset = Vector2( 49.1212, -119.843 )
 __meta__ = {
-"_edit_bone_": true
+"_edit_bone_": true,
+"_edit_ik_": true
 }
 
 [node name="bicep_r" type="Sprite" parent="root/hip/torso"]
-position = Vector2( -26.6063, -260.287 )
+position = Vector2( 17.0527, -251.026 )
 rotation = 0.509864
 texture = ExtResource( 10 )
 offset = Vector2( -6.53321, 36.263 )
@@ -232,8 +233,8 @@ __meta__ = {
 }
 
 [node name="remote_bicep_l" type="RemoteTransform2D" parent="root/hip/torso"]
-position = Vector2( -0.00012207, -271.87 )
-rotation = -0.800288
+position = Vector2( 28.9487, -265.648 )
+rotation = -0.129032
 remote_path = NodePath("../../../bicep_l")
 __meta__ = {
 "_edit_bone_": true,
@@ -242,7 +243,7 @@ __meta__ = {
 
 [node name="remote_forearm_l" type="RemoteTransform2D" parent="root/hip/torso/remote_bicep_l"]
 position = Vector2( -14.4997, 78.5403 )
-rotation = -0.788165
+rotation = -0.400398
 remote_path = NodePath("../../../../bicep_l/forearm_l")
 __meta__ = {
 "_edit_bone_": true
@@ -250,7 +251,7 @@ __meta__ = {
 
 [node name="remote_hand_l" type="RemoteTransform2D" parent="root/hip/torso/remote_bicep_l/remote_forearm_l"]
 position = Vector2( 32.4577, 102.256 )
-rotation = -0.138056
+rotation = 0.0279002
 scale = Vector2( 0.789305, 0.789305 )
 remote_path = NodePath("../../../../../bicep_l/forearm_l/hand_l")
 __meta__ = {
@@ -264,13 +265,12 @@ __meta__ = {
 }
 
 [node name="helmet" type="Sprite" parent="root/hip/torso"]
-position = Vector2( -29.5542, -320.565 )
-rotation = 0.0151217
+position = Vector2( 18.0737, -308.658 )
+rotation = -0.0395748
 texture = ExtResource( 16 )
 offset = Vector2( -2.05585, -118.081 )
 __meta__ = {
-"_edit_bone_": true,
-"_edit_ik_": true
+"_edit_bone_": true
 }
 
 [node name="eyes" type="Sprite" parent="root/hip/torso/helmet"]
@@ -281,8 +281,9 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="mouth" type="Sprite" parent="root/hip/torso/helmet"]
-position = Vector2( 46.1826, -43.4227 )
+[node name="mouth" type="Sprite" parent="root/hip/torso/helmet/eyes"]
+position = Vector2( -13.9621, 79.4484 )
+scale = Vector2( 1, 1 )
 texture = ExtResource( 14 )
 __meta__ = {
 "_edit_bone_": true
@@ -303,8 +304,8 @@ __meta__ = {
 }
 
 [node name="remote_thigh_l" type="RemoteTransform2D" parent="root/hip"]
-position = Vector2( 2.00354, -2.84536 )
-rotation = -0.773532
+position = Vector2( -5.00481, -1.43735 )
+rotation = 0.0663361
 remote_path = NodePath("../../thigh_l")
 __meta__ = {
 "_edit_bone_": true,
@@ -313,7 +314,7 @@ __meta__ = {
 
 [node name="remote_shin_l" type="RemoteTransform2D" parent="root/hip/remote_thigh_l"]
 position = Vector2( 14.951, 256.552 )
-rotation = 1.12061
+rotation = -0.0756136
 remote_path = NodePath("../../../thigh_l/shin_l")
 __meta__ = {
 "_edit_bone_": true
@@ -321,7 +322,7 @@ __meta__ = {
 
 [node name="remote_foot_l" type="RemoteTransform2D" parent="root/hip/remote_thigh_l/remote_shin_l"]
 position = Vector2( -2.23273, 119.767 )
-rotation = -0.341579
+rotation = 0.080599
 remote_path = NodePath("../../../../thigh_l/shin_l/foot_l")
 __meta__ = {
 "_edit_bone_": true

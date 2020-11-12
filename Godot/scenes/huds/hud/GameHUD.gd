@@ -1,7 +1,7 @@
 extends Control
 
-onready var ammo_label = $AmmoLabel
-onready var health_label = $HealthLabel
+onready var ammo_label = $Labels/AmmoLabel
+onready var health_label = $Labels/HealthLabel
 onready var oxygen_bar = $OxygenBar
 
 onready var global: Node = get_node("/root/Global")
