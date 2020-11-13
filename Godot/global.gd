@@ -7,10 +7,13 @@ var dev: bool = true
 var levels: Array = [
     "res://scenes/levels/test_level/TestLevel.tscn"
    ]
-
 var completed_levels: Array = []
-
 var current_level_path: String = "" setget ,_get_current_level_path
+
+var time_left_percent: int = -1
+var time_left_seconds: int = 0
+
+var is_restart = false
 
 ### Player variables ###
 
@@ -25,23 +28,26 @@ var bullet_speed: int = 1250
 
 ### Helper functions ###
 
+# Set the scene stuff
 func goto_scene(path: String) -> void:
     call_deferred("_deffered_goto_scene", path)
     
 func _deffered_goto_scene(path: String) -> void:
     current_level_path = path
-    print(path)
+    print_debug("Loaded level: " + path)
     var packed_scene = ResourceLoader.load(path)
     var instanced_scene = packed_scene.instance()
     
     get_tree().get_root().add_child(instanced_scene)
     get_tree().set_current_scene(instanced_scene)
 
+# Setters and getters
 func _get_current_level_path() -> String:
     return current_level_path
     
 func restart_level() -> void:
     goto_scene(current_level_path)
     
+# What to do when the player reaches the end, may be moved
 func win_game() -> void:
     print("Winner!")
