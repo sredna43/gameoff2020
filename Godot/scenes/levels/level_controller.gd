@@ -12,7 +12,6 @@ func _ready() -> void:
     var _o2_timeout_error = o2_timer.connect("timeout", self, "_o2_timeout")
     initial_time = o2_timer.wait_time
     if global.is_restart:
-        print(global.time_left_seconds)
         o2_timer.wait_time = clamp(global.time_left_seconds + 10, 0, initial_time)
     o2_timer.start()
     

@@ -46,8 +46,8 @@ func _get_current_level_path() -> String:
     return current_level_path
     
 func restart_level() -> void:
+    # What to do when the player reaches the end, may be moved
     goto_scene(current_level_path)
     
-# What to do when the player reaches the end, may be moved
 func win_game() -> void:
     print("Winner!")
