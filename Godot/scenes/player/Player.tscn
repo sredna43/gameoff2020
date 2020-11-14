@@ -121,8 +121,8 @@ offset = Vector2( 29.0651, 4.30582 )
 [node name="bicep_l" type="Sprite" parent="root"]
 modulate = Color( 0.835294, 0.835294, 0.835294, 1 )
 light_mask = -2147483647
-position = Vector2( -3.85703, -257.11 )
-rotation = -0.0303954
+position = Vector2( -3.85704, -257.109 )
+rotation = -0.0303957
 scale = Vector2( 1, 1 )
 texture = ExtResource( 10 )
 offset = Vector2( -5.61292, 39.767 )
@@ -135,14 +135,14 @@ texture = ExtResource( 12 )
 offset = Vector2( 10.4839, 44.3548 )
 
 [node name="hand_l" type="Sprite" parent="root/bicep_l/forearm_l"]
-position = Vector2( 32.4577, 102.256 )
-rotation = 0.0279002
+position = Vector2( 32.4579, 102.255 )
+rotation = 0.0279005
 scale = Vector2( 0.789305, 0.789305 )
 texture = ExtResource( 11 )
 offset = Vector2( 23.3261, 22.6629 )
 
 [node name="antenna" type="Sprite" parent="root"]
-position = Vector2( -59.6688, -543.842 )
+position = Vector2( -59.6687, -543.842 )
 rotation = -0.021402
 scale = Vector2( 1, 1 )
 texture = ExtResource( 15 )
@@ -283,7 +283,6 @@ __meta__ = {
 
 [node name="mouth" type="Sprite" parent="root/hip/torso/helmet/eyes"]
 position = Vector2( -13.9621, 79.4484 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 14 )
 __meta__ = {
 "_edit_bone_": true

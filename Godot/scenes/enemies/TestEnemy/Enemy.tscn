@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/enemies/TestEnemy/scripts/controller.gd" type="Script" id=1]
 [ext_resource path="res://scenes/enemies/TestEnemy/scripts/state_machine/enemy_fsm.gd" type="Script" id=2]
 [ext_resource path="res://scenes/enemies/TestEnemy/scripts/state_machine/states/idle.gd" type="Script" id=3]
 [ext_resource path="res://scenes/enemies/TestEnemy/scripts/state_machine/states/walk.gd" type="Script" id=4]
 [ext_resource path="res://scenes/enemies/TestEnemy/scripts/state_machine/states/air.gd" type="Script" id=5]
+[ext_resource path="res://assets/enemy/enemy.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -46,6 +47,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -53,14 +55,11 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="HitBoxCollision" type="CollisionShape2D" parent="HitBox"]
+rotation = 1.5708
 shape = SubResource( 2 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -10.0
-margin_top = -20.0
-margin_right = 10.0
-margin_bottom = 20.0
-color = Color( 0.572549, 0.160784, 0.160784, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -25.0411, -8.59828 )
+scale = Vector2( 0.0214874, 0.0256147 )
+texture = ExtResource( 6 )
+offset = Vector2( 1162.65, 309.949 )
