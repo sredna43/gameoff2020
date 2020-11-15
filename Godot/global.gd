@@ -1,3 +1,5 @@
+# Holds global functions and variables, auto-load singleton.
+
 extends Node
 
 ### Game variables ###

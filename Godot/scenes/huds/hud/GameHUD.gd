@@ -1,3 +1,5 @@
+# Main control of the in-game HUD
+
 extends Control
 
 onready var ammo_label = $Labels/AmmoLabel
