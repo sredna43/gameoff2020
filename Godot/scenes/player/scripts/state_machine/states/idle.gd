@@ -1,3 +1,5 @@
+# Controls the idle player state
+
 extends PlayerState
 
 #Override run function
