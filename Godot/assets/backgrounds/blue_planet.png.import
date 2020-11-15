@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/blur.png-e040217916c62abfe8d8b0b7018324bd.stex"
+path="res://.import/blue_planet.png-960888292f98dfbbdae6d787e13f982b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/blur.png"
-dest_files=[ "res://.import/blur.png-e040217916c62abfe8d8b0b7018324bd.stex" ]
+source_file="res://assets/backgrounds/blue_planet.png"
+dest_files=[ "res://.import/blue_planet.png-960888292f98dfbbdae6d787e13f982b.stex" ]
 
 [params]
 

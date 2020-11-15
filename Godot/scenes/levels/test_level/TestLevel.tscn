@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/enemies/TestEnemy/Enemy.tscn" type="PackedScene" id=2]
@@ -9,10 +9,9 @@
 [ext_resource path="res://scenes/levels/test_level/test_level.gd" type="Script" id=7]
 [ext_resource path="res://scenes/tiles/Goal.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/backgrounds/sky.png" type="Texture" id=9]
-[ext_resource path="res://assets/backgrounds/front_layer.png" type="Texture" id=10]
-[ext_resource path="res://assets/backgrounds/back_layer.png" type="Texture" id=11]
-[ext_resource path="res://assets/backgrounds/middle_layer.png" type="Texture" id=12]
-[ext_resource path="res://assets/backgrounds/blur.png" type="Texture" id=13]
+[ext_resource path="res://assets/backgrounds/layer1.png" type="Texture" id=10]
+[ext_resource path="res://assets/backgrounds/layer3.png" type="Texture" id=11]
+[ext_resource path="res://assets/backgrounds/layer2.png" type="Texture" id=12]
 
 [node name="TestLevel" type="Node2D"]
 pause_mode = 1
@@ -23,41 +22,39 @@ offset = Vector2( -600, -300 )
 transform = Transform2D( 1, 0, 0, 1, -600, -300 )
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( -483.81, -520.095 )
 motion_scale = Vector2( 0.01, 0.01 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
-scale = Vector2( 1, 1.36 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 centered = false
 
 [node name="BackLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( -483.81, -520.095 )
 motion_scale = Vector2( 0.03, 0.03 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/BackLayer"]
-position = Vector2( 0, 268.51 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 11 )
 centered = false
 
 [node name="MiddleLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( -483.81, -520.095 )
 motion_scale = Vector2( 0.1, 0.1 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/MiddleLayer"]
-position = Vector2( 9.51367, 425.118 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 12 )
 centered = false
 
 [node name="FrontLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( -483.81, -520.095 )
 motion_scale = Vector2( 0.2, 0.2 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/FrontLayer"]
-position = Vector2( 0, 459.147 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
-centered = false
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
-position = Vector2( 0, -41.6664 )
-scale = Vector2( 1, 2 )
-texture = ExtResource( 13 )
 centered = false
 
 [node name="World" type="Node2D" parent="."]

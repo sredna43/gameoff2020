@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/middle_layer.png-79058d4245523cde30c17f15ba47e41a.stex"
+path="res://.import/red_planet.png-b9d88ea51256de4e048d3ef95326b8c2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/middle_layer.png"
-dest_files=[ "res://.import/middle_layer.png-79058d4245523cde30c17f15ba47e41a.stex" ]
+source_file="res://assets/backgrounds/red_planet.png"
+dest_files=[ "res://.import/red_planet.png-b9d88ea51256de4e048d3ef95326b8c2.stex" ]
 
 [params]
 
