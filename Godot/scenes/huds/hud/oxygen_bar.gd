@@ -1,3 +1,5 @@
+# Oxygen bar sort of takes care of itself for now
+
 extends VBoxContainer
 
 onready var progress_bar = $CenterContainer/TextureProgress
