@@ -22,38 +22,30 @@ offset = Vector2( -600, -300 )
 transform = Transform2D( 1, 0, 0, 1, -600, -300 )
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2( -483.81, -520.095 )
 motion_scale = Vector2( 0.01, 0.01 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 centered = false
 
 [node name="BackLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2( -483.81, -520.095 )
 motion_scale = Vector2( 0.03, 0.03 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/BackLayer"]
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 11 )
 centered = false
 
 [node name="MiddleLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2( -483.81, -520.095 )
 motion_scale = Vector2( 0.1, 0.1 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/MiddleLayer"]
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 12 )
 centered = false
 
 [node name="FrontLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2( -483.81, -520.095 )
 motion_scale = Vector2( 0.2, 0.2 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/FrontLayer"]
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 centered = false
 
