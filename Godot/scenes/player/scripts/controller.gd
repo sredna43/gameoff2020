@@ -33,6 +33,7 @@ var horizontal_input: int = 0
 var vertical_input: int = 0
 var controller_is_connected: bool = false
 var controller_id: int = 0
+var shoot_dir: Vector2
 
 # Timers
 onready var jump_timer: Timer = $Timers/JumpTimer
@@ -97,7 +98,6 @@ func apply_gravity():
 func fire() -> void:
     if not global.dev:
         global.ammo = clamp(global.ammo-1, 0, global.max_ammo)
-    var shoot_dir: Vector2
     var ur = Vector2(1,-1).normalized()
     var dr = Vector2(1,1).normalized()
     var ul = Vector2(-1,-1).normalized()
@@ -154,10 +154,14 @@ func fire() -> void:
 # Animations and looks
 
 func update_look_direction():
-    if velocity.x < 0:
-        $root.scale.x = -0.05
-    if velocity.x > 0:
-        $root.scale.x = 0.05
+    if Input.is_mouse_button_pressed(BUTTON_LEFT):
+        if shoot_dir.x < 0:
+            $root.scale.x = -0.05
+            return
+        if shoot_dir.x > 0:
+            $root.scale.x = 0.05
+            return
+    $root.scale.x = 0.05 * velocity.x/abs(velocity.x) if velocity.x != 0 else 0.05 * direction.x
     if velocity.x and state_machine.active_state.tag in ["walk", "run"]:
         if direction.x != velocity.x/abs(velocity.x):
             # print("kick turn", direction)

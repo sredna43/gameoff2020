@@ -128,14 +128,15 @@ texture = ExtResource( 10 )
 offset = Vector2( -5.61292, 39.767 )
 
 [node name="forearm_l" type="Sprite" parent="root/bicep_l"]
-position = Vector2( -14.4997, 78.5409 )
+position = Vector2( -14.4997, 78.5403 )
 rotation = -0.400398
+scale = Vector2( 1, 1 )
 texture = ExtResource( 12 )
 offset = Vector2( 10.4839, 44.3548 )
 
 [node name="hand_l" type="Sprite" parent="root/bicep_l/forearm_l"]
-position = Vector2( 32.4575, 102.257 )
-rotation = 0.0278999
+position = Vector2( 32.4579, 102.255 )
+rotation = 0.0279005
 scale = Vector2( 0.789305, 0.789305 )
 texture = ExtResource( 11 )
 offset = Vector2( 23.3261, 22.6629 )

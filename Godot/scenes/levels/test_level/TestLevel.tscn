@@ -34,7 +34,7 @@ centered = false
 motion_scale = Vector2( 0.03, 0.03 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/BackLayer"]
-position = Vector2( 0, 211.428 )
+position = Vector2( 0, 268.51 )
 texture = ExtResource( 11 )
 centered = false
 
@@ -42,7 +42,7 @@ centered = false
 motion_scale = Vector2( 0.1, 0.1 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/MiddleLayer"]
-position = Vector2( 0, 377.55 )
+position = Vector2( 9.51367, 425.118 )
 texture = ExtResource( 12 )
 centered = false
 
@@ -50,12 +50,11 @@ centered = false
 motion_scale = Vector2( 0.2, 0.2 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/FrontLayer"]
-position = Vector2( 0, 412 )
+position = Vector2( 0, 459.147 )
 texture = ExtResource( 10 )
 centered = false
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground"]
-visible = false
 position = Vector2( 0, -41.6664 )
 scale = Vector2( 1, 2 )
 texture = ExtResource( 13 )
