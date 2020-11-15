@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/enemies/TestEnemy/Enemy.tscn" type="PackedScene" id=2]
@@ -8,34 +8,32 @@
 [ext_resource path="res://scenes/tiles/TestTile.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/levels/test_level/test_level.gd" type="Script" id=7]
 [ext_resource path="res://scenes/tiles/Goal.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/backgrounds/sky.png" type="Texture" id=9]
-[ext_resource path="res://assets/backgrounds/layer1.png" type="Texture" id=10]
-[ext_resource path="res://assets/backgrounds/layer3.png" type="Texture" id=11]
+[ext_resource path="res://scenes/levels/moon/Background.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/backgrounds/fl.png" type="Texture" id=10]
+[ext_resource path="res://assets/backgrounds/bl.png" type="Texture" id=11]
 [ext_resource path="res://assets/backgrounds/layer2.png" type="Texture" id=12]
+[ext_resource path="res://scenes/player/PlayerCamera.tscn" type="PackedScene" id=13]
 
 [node name="TestLevel" type="Node2D"]
 pause_mode = 1
 script = ExtResource( 7 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-offset = Vector2( -600, -300 )
-transform = Transform2D( 1, 0, 0, 1, -600, -300 )
-
-[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.01, 0.01 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
-texture = ExtResource( 9 )
-centered = false
+offset = Vector2( -512, -300 )
+transform = Transform2D( 1, 0, 0, 1, -512, -300 )
+scroll_ignore_camera_zoom = true
 
 [node name="BackLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_scale = Vector2( 0.03, 0.03 )
+motion_mirroring = Vector2( 1024, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/BackLayer"]
 texture = ExtResource( 11 )
 centered = false
 
 [node name="MiddleLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_scale = Vector2( 0.1, 0.1 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/MiddleLayer"]
@@ -43,7 +41,9 @@ texture = ExtResource( 12 )
 centered = false
 
 [node name="FrontLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 1024, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/FrontLayer"]
 texture = ExtResource( 10 )
@@ -52,23 +52,23 @@ centered = false
 [node name="World" type="Node2D" parent="."]
 
 [node name="TestTile" parent="World" instance=ExtResource( 6 )]
-position = Vector2( 2336.88, 625.501 )
+position = Vector2( 2515.07, 633.986 )
 scale = Vector2( 4.6624, 2.48 )
 
 [node name="SmallBox2" parent="World" instance=ExtResource( 4 )]
-position = Vector2( 2409.15, 442.162 )
+position = Vector2( 2397.84, 538.328 )
 
 [node name="SmallBox3" parent="World" instance=ExtResource( 4 )]
-position = Vector2( 3545.73, 458.036 )
+position = Vector2( 3401.48, 548.546 )
 
 [node name="SmallBox4" parent="World" instance=ExtResource( 4 )]
-position = Vector2( 3713.99, 331.044 )
+position = Vector2( 3869.55, 427.211 )
 
 [node name="SmallBox5" parent="World" instance=ExtResource( 4 )]
-position = Vector2( 5494.67, 432.492 )
+position = Vector2( 5520.13, 497.546 )
 
 [node name="SmallBox6" parent="World" instance=ExtResource( 4 )]
-position = Vector2( 5943.08, 422.574 )
+position = Vector2( 5937.42, 496.113 )
 
 [node name="SmallBox" parent="World" instance=ExtResource( 4 )]
 position = Vector2( 652.018, 531.702 )
@@ -78,15 +78,15 @@ position = Vector2( 519.01, 596.192 )
 scale = Vector2( 2.32, 1 )
 
 [node name="Platform2" parent="World" instance=ExtResource( 6 )]
-position = Vector2( 6879.6, 589.965 )
+position = Vector2( 6729.69, 595.622 )
 scale = Vector2( 2.32, 1 )
 
 [node name="Platform3" parent="World" instance=ExtResource( 6 )]
-position = Vector2( 4705.07, 302.527 )
+position = Vector2( 4586.28, 517.487 )
 scale = Vector2( 2.32, 1 )
 
 [node name="Goal" parent="World" instance=ExtResource( 8 )]
-position = Vector2( 7325.94, 510.095 )
+position = Vector2( 7266.54, 529.894 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -95,7 +95,7 @@ position = Vector2( 1925.43, 489.926 )
 scale = Vector2( 3.12, 2.72 )
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 2 )]
-position = Vector2( 4934.49, 214.873 )
+position = Vector2( 4674.28, 446.804 )
 scale = Vector2( 3.12, 2.72 )
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource( 2 )]
@@ -128,25 +128,15 @@ position = Vector2( 5779.94, 345.346 )
 position = Vector2( 460.6, 416.053 )
 
 [node name="HealthSupply2" parent="Supplies" instance=ExtResource( 3 )]
-position = Vector2( 6352.58, 410.714 )
+position = Vector2( 6230.96, 543.65 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 168.179, 486.038 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
-limit_left = 0
-limit_bottom = 610
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_speed = 20.0
-offset_v = -1.0
-drag_margin_left = 0.1
-drag_margin_top = 0.5
-drag_margin_right = 0.1
-drag_margin_bottom = 0.4
-editor_draw_drag_margin = true
+[node name="Camera" parent="Player" instance=ExtResource( 13 )]
 
 [node name="OxygenTimer" type="Timer" parent="."]
 wait_time = 120.0
 one_shot = true
+
+[node name="Background" parent="." instance=ExtResource( 9 )]
