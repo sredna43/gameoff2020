@@ -134,6 +134,7 @@ position = Vector2( 6230.96, 543.65 )
 position = Vector2( 168.179, 486.038 )
 
 [node name="Camera" parent="Player" instance=ExtResource( 13 )]
+offset_v = 0.0
 
 [node name="OxygenTimer" type="Timer" parent="."]
 wait_time = 120.0
