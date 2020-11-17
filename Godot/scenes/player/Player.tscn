@@ -24,8 +24,8 @@
 extents = Vector2( 7.07248, 3.35814 )
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 5.67565
-height = 30.2018
+radius = 7.11143
+height = 26.5601
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 2.48, 2.48 )
@@ -82,7 +82,7 @@ position = Vector2( 0, 16.4345 )
 shape = SubResource( 1 )
 
 [node name="Capsule" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -6.515 )
+position = Vector2( 0, -4.76837e-07 )
 shape = SubResource( 2 )
 
 [node name="BulletSpawnerLocation" type="Position2D" parent="."]
@@ -107,11 +107,12 @@ offset = Vector2( -2.58917, 126.285 )
 [node name="shin_l" type="Sprite" parent="root/thigh_l"]
 position = Vector2( 14.951, 256.552 )
 rotation = 1.13913
+scale = Vector2( 1, 1 )
 texture = ExtResource( 19 )
 offset = Vector2( -5.00751, 51.5881 )
 
 [node name="foot_l" type="Sprite" parent="root/thigh_l/shin_l"]
-position = Vector2( -2.23271, 119.767 )
+position = Vector2( -2.23273, 119.767 )
 rotation = -0.219459
 scale = Vector2( 1, 1 )
 texture = ExtResource( 18 )
@@ -127,14 +128,15 @@ texture = ExtResource( 10 )
 offset = Vector2( -5.61292, 39.767 )
 
 [node name="forearm_l" type="Sprite" parent="root/bicep_l"]
-position = Vector2( -14.4997, 78.5403 )
-rotation = 0.488542
+position = Vector2( -14.4995, 78.5401 )
+rotation = 0.488547
+scale = Vector2( 1, 1 )
 texture = ExtResource( 12 )
 offset = Vector2( 10.4839, 44.3548 )
 
 [node name="hand_l" type="Sprite" parent="root/bicep_l/forearm_l"]
-position = Vector2( 32.4577, 102.256 )
-rotation = 0.196091
+position = Vector2( 32.4573, 102.256 )
+rotation = 0.196096
 scale = Vector2( 0.789305, 0.789305 )
 texture = ExtResource( 11 )
 offset = Vector2( 23.3261, 22.6629 )
