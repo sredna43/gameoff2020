@@ -1,5 +1,0 @@
-[gd_scene format=2]
-
-[node name="MoonTiles" type="TileMap"]
-cell_size = Vector2( 200, 200 )
-format = 1
