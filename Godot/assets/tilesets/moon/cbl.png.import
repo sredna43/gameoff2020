@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/moon_tiles.png-08347fe5261554154fdf6eb31c86defb.stex"
+path="res://.import/cbl.png-9e90e4cebf1075f679841eca7b5d1b15.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/moon_tiles.png"
-dest_files=[ "res://.import/moon_tiles.png-08347fe5261554154fdf6eb31c86defb.stex" ]
+source_file="res://assets/tilesets/moon/cbl.png"
+dest_files=[ "res://.import/cbl.png-9e90e4cebf1075f679841eca7b5d1b15.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

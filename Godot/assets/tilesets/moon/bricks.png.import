@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/moon_tiles3.png-3b5f8520a98704d3b7896704628f4f71.stex"
+path="res://.import/bricks.png-de6715373bc28def7d6a960400bb018c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/moon_tiles3.png"
-dest_files=[ "res://.import/moon_tiles3.png-3b5f8520a98704d3b7896704628f4f71.stex" ]
+source_file="res://assets/tilesets/moon/bricks.png"
+dest_files=[ "res://.import/bricks.png-de6715373bc28def7d6a960400bb018c.stex" ]
 
 [params]
 
