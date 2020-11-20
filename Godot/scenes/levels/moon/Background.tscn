@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/backgrounds/sky.png" type="Texture" id=1]
+[ext_resource path="res://assets/backgrounds/red_planet.png" type="Texture" id=2]
+[ext_resource path="res://assets/backgrounds/blue_planet.png" type="Texture" id=3]
+
+[node name="Background" type="ParallaxBackground"]
+layer = -101
+offset = Vector2( -512, -300 )
+transform = Transform2D( 1, 0, 0, 1, -512, -300 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.001, 0.001 )
+
+[node name="Sky" type="Sprite" parent="ParallaxLayer3"]
+position = Vector2( -266.806, 9.53674e-07 )
+scale = Vector2( 0.14, 0.2 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.001, 0.001 )
+
+[node name="BluePlanet" type="Sprite" parent="ParallaxLayer"]
+modulate = Color( 0.556863, 0.556863, 0.556863, 1 )
+position = Vector2( 238.935, 133.483 )
+scale = Vector2( 0.075, 0.075 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.01, 0.01 )
+
+[node name="RedPlanet" type="Sprite" parent="ParallaxLayer2"]
+modulate = Color( 0.827451, 0.827451, 0.827451, 1 )
+position = Vector2( 578.155, 251.08 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 2 )

@@ -8,18 +8,18 @@ var direction: Vector2 = Vector2.ZERO
 onready var global: Node = get_node("/root/Global")
 
 func _ready() -> void:
-	set_as_toplevel(true)
-	
+    set_as_toplevel(true)
+    
 
 func _physics_process(_delta: float) -> void:
-	if get_slide_count():
-		queue_free()
-	else:
-		velocity = global.bullet_speed * direction
-	velocity = move_and_slide(velocity, Vector2.UP)
+    if get_slide_count():
+        queue_free()
+    else:
+        velocity = global.bullet_speed * direction
+    velocity = move_and_slide(velocity, Vector2.UP)
 
 
 func _on_HitBox_body_entered(body: Node) -> void:
-	if body is Enemy:
-		body.hit()
-		queue_free()
+    if body is Enemy:
+        body.hit()
+        queue_free()
