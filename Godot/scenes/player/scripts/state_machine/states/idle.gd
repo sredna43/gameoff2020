@@ -14,6 +14,13 @@ func run(player: KinematicBody2D) -> String:
     player.move()
     
     # Return the next state
+    if player.can_fall_through and player.vertical_input > 0:
+        player.collision_mask = 0
+        print("fall through")
+        player.fallthrough_timer.start()
+        player.apply_gravity()
+        player.move()
+        return "air"
     if not player.is_on_floor():
         player.can_double_jump = false
         return "air"

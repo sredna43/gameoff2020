@@ -152,6 +152,7 @@ player_aim={
 2d_physics/layer_5="ammo"
 2d_render/layer_6="health"
 2d_physics/layer_6="health"
+2d_physics/layer_7="one_way"
 
 [rendering]
 

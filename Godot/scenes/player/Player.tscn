@@ -67,6 +67,10 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
+[node name="FallthroughTimer" type="Timer" parent="Timers"]
+wait_time = 0.1
+one_shot = true
+
 [node name="Floor" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 16.4345 )
 shape = SubResource( 1 )
@@ -104,7 +108,6 @@ offset = Vector2( -5.00751, 51.5881 )
 [node name="foot_l" type="Sprite" parent="root/thigh_l/shin_l"]
 position = Vector2( -2.23273, 119.767 )
 rotation = -0.219459
-scale = Vector2( 1, 1 )
 texture = ExtResource( 18 )
 offset = Vector2( 29.0651, 4.30582 )
 
@@ -125,8 +128,8 @@ texture = ExtResource( 12 )
 offset = Vector2( 10.4839, 44.3548 )
 
 [node name="hand_l" type="Sprite" parent="root/bicep_l/forearm_l"]
-position = Vector2( 32.4577, 102.256 )
-rotation = 0.196091
+position = Vector2( 32.4578, 102.256 )
+rotation = 0.196089
 scale = Vector2( 0.789305, 0.789305 )
 texture = ExtResource( 11 )
 offset = Vector2( 23.3261, 22.6629 )
@@ -325,3 +328,4 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="root"]
 [connection signal="shoot" from="." to="BulletSpawnerLocation/Spawner" method="fire"]
+[connection signal="timeout" from="Timers/FallthroughTimer" to="." method="_on_FallthroughTimer_timeout"]
