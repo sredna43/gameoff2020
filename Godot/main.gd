@@ -6,7 +6,7 @@ onready var global: Node = get_node("/root/Global")
 onready var _pause_menu = $PauseMenu
 
 func _ready() -> void:
-    global.current_level_path = global.levels[0]
+    global.current_level_path = global.levels[global.levels.keys()[1]]
     global.goto_scene(global.current_level_path)
 
 func _unhandled_input(event):

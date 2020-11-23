@@ -6,9 +6,11 @@ extends Node
 
 var dev: bool = true
 
-var levels: Array = [
-    "res://scenes/levels/test_level/TestLevel.tscn"
-   ]
+var levels: Dictionary = {
+    "Test": "res://scenes/levels/test_level/TestLevel.tscn",
+    "moon1": "res://scenes/levels/moon/Level1.tscn"
+   }
+
 var completed_levels: Array = []
 var current_level_path: String = "" setget ,_get_current_level_path
 

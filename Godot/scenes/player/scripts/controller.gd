@@ -21,7 +21,7 @@ export var air_accel: float = 40
 export var gravity: float = 40
 export var terminal_velocity: float = 800
 export var jump_power: float = 700
-export var run_jump_power: float = 750
+export var run_jump_power: float = 715
 export var air_resistance: float = 0.05
 var velocity: Vector2 = Vector2.ZERO
 var vx: float = 0 setget _set_vx, _get_vx
@@ -39,12 +39,16 @@ var shoot_dir: Vector2
 onready var jump_timer: Timer = $Timers/JumpTimer
 onready var floor_timer: Timer = $Timers/GroundTimer
 onready var shoot_timer: Timer = $Timers/ShootTimer
+onready var fallthrough_timer: Timer = $Timers/FallthroughTimer
 var grounded: bool = false setget , _get_grounded
 var jumping: bool = false setget , _get_jumping
 
 # State Machine (Variables)
 onready var state_machine: PlayerFSM = $States
 var can_double_jump: bool = false
+
+# Player info
+var can_fall_through: bool = false
 
 
 # Core functions 
@@ -62,6 +66,11 @@ func _ready() -> void:
     
 func _physics_process(_delta: float) -> void:
     _update_inputs()
+    
+    for i in get_slide_count():
+        var collision = get_slide_collision(i)
+        can_fall_through = collision.collider.name == "OneWayMoonTiles"
+
     state_machine.run()
     if position.y > 1000:
         emit_signal("restart_level", 0)
@@ -209,3 +218,6 @@ func _on_controller_connected(device_id, connected):
         print("Controller connected: " + str(Input.get_joy_name(device_id)))
     else:
         print("It is recommended to use a controller to play this game")
+
+func _on_FallthroughTimer_timeout() -> void:
+    collision_mask = 68
