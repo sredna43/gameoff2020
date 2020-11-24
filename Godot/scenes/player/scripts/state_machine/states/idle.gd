@@ -21,7 +21,7 @@ func run(player: KinematicBody2D) -> String:
         player.apply_gravity()
         player.move()
         return "air"
-    if not player.is_on_floor():
+    if not player.is_on_floor() and not player.on_vertical_platform:
         player.can_double_jump = false
         return "air"
     if player.horizontal_input != 0 and not Input.is_action_pressed("player_aim"):

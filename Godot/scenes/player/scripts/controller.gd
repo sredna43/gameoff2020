@@ -19,7 +19,7 @@ export var run_accel: float = 50
 export var friction: float = 0.4
 export var air_accel: float = 40
 export var gravity: float = 40
-export var terminal_velocity: float = 800
+export var terminal_velocity: float = 900
 export var jump_power: float = 700
 export var run_jump_power: float = 715
 export var air_resistance: float = 0.05
@@ -49,7 +49,7 @@ var can_double_jump: bool = false
 
 # Player info
 var can_fall_through: bool = false
-
+var on_vertical_platform: bool = false
 
 # Core functions 
 
@@ -65,14 +65,22 @@ func _ready() -> void:
         print("Controller connected: " + str(Input.get_joy_name(controller_id)))
     
 func _physics_process(_delta: float) -> void:
+    if global.dev:
+        $debug/message.text = "State: " + state_machine.active_state.tag
+    else:
+        $debug/message.text = ""
     _update_inputs()
-    
-    for i in get_slide_count():
-        var collision = get_slide_collision(i)
-        can_fall_through = collision.collider.name == "OneWayMoonTiles"
+    if get_slide_count():
+        for i in get_slide_count():
+            var collision = get_slide_collision(i)
+            can_fall_through = collision.collider.name == "OneWayMoonTiles"
+            on_vertical_platform = collision.collider.name.begins_with("VerticalPlatform")
+    else:
+        can_fall_through = false
+        on_vertical_platform = false
 
     state_machine.run()
-    if position.y > 1000:
+    if position.y > 2000:
         emit_signal("restart_level", 0)
 
 func move():
@@ -101,7 +109,7 @@ func _update_inputs() -> void:
         fire()
 
 func apply_gravity():
-    if velocity.y <= terminal_velocity:
+    if velocity.y <= terminal_velocity and not on_vertical_platform:
         velocity.y += gravity
         
 func fire() -> void:
