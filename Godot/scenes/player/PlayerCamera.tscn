@@ -1,6 +1,7 @@
 [gd_scene format=2]
 
 [node name="Camera2D" type="Camera2D"]
+offset = Vector2( 0, -64 )
 current = true
 limit_left = 0
 limit_bottom = 610

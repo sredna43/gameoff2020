@@ -75,12 +75,15 @@ func _physics_process(_delta: float) -> void:
             var collision = get_slide_collision(i)
             can_fall_through = collision.collider.name == "OneWayMoonTiles"
             on_vertical_platform = collision.collider.name.begins_with("VerticalPlatform")
+            if collision.collider.name in global.things_that_kill_you:
+                die(collision.collider.name)
     else:
         can_fall_through = false
         on_vertical_platform = false
 
     state_machine.run()
     if position.y > 2000:
+        die("fallout")
         emit_signal("restart_level", 0)
 
 func move():
@@ -183,6 +186,9 @@ func update_look_direction():
         if direction.x != velocity.x/abs(velocity.x):
             # print("kick turn", direction)
             pass
+            
+func die(reason: String) -> void:
+    print("Death by " + reason)
 
 
 # Setters and Getters
