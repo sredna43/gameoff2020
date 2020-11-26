@@ -6,23 +6,26 @@ extends Node
 
 var dev: bool = true
 
+# Worlds
 var worlds: Dictionary = {
     "Test": {"Level1": "res://scenes/levels/test_level/TestLevel.tscn"},
     "Moon": {"Level1": "res://scenes/levels/moon/Level1.tscn"}
    }
-
 var completed_levels: Array = []
 var current_level_path: String = "" setget ,_get_current_level_path
-
-var time_left_percent: int = -1
-var time_left_seconds: int = 0
-
-var is_restart = false
-
 var death_by_world: Dictionary = {
     "Moon": ["Spikes"]
    }
 var things_that_kill_you: Array
+
+# Level timer
+var time_left_percent: int = -1
+var time_left_seconds: int = 0
+var is_restart = false
+
+# Level checkpoints
+var on_checkpoint: int = 0
+
 
 ### Player variables ###
 
