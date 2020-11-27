@@ -85,7 +85,6 @@ func _physics_process(_delta: float) -> void:
     state_machine.run()
     if position.y > 2000:
         die("fallout")
-        emit_signal("restart_level", 0)
 
 func move():
     update_look_direction()
@@ -190,14 +189,13 @@ func update_look_direction():
             
 func hit(by: String) -> void:
     hit_cooldown_timer.start()
-    print("Hit by " + by)  
     update_health(-1)
     if global.health == 0:
         die(by)
               
             
 func die(reason: String) -> void:
-    print("Death by " + reason)
+    emit_signal("restart_level")
 
 
 # Setters and Getters
