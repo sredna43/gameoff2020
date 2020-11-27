@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/piss.png-d0923ed6832e337b5eaf9fee545ca732.stex"
+path="res://.import/porta_green.png-cb6d4cb30a9a3197338d036bd12c1baf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/moon/piss.png"
-dest_files=[ "res://.import/piss.png-d0923ed6832e337b5eaf9fee545ca732.stex" ]
+source_file="res://assets/tilesets/all/porta_green.png"
+dest_files=[ "res://.import/porta_green.png-cb6d4cb30a9a3197338d036bd12c1baf.stex" ]
 
 [params]
 
