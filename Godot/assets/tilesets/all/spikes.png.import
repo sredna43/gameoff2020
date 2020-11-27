@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/checkpoint_flag.png-344f6032c07814ee18305457d98a26d5.stex"
+path="res://.import/spikes.png-1a1347a29adfe222e7da5b2b134b2265.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/moon/checkpoint_flag.png"
-dest_files=[ "res://.import/checkpoint_flag.png-344f6032c07814ee18305457d98a26d5.stex" ]
+source_file="res://assets/tilesets/all/spikes.png"
+dest_files=[ "res://.import/spikes.png-1a1347a29adfe222e7da5b2b134b2265.stex" ]
 
 [params]
 

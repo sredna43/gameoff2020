@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
     global.time_left_percent = o2_timer.time_left/initial_time * 100
     global.time_left_seconds = o2_timer.time_left
     
-func _restart() -> void:
+func _restart(_checkpoint: int) -> void:
     global.is_restart = true
     global.restart_level()
     queue_free()

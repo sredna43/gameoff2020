@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/porta_red.png-20966a99284f9b942a444d0b27c1262d.stex"
+path="res://.import/checkpoint_flag_done.png-25423cf058f0736fb6944371985d8368.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/moon/porta_red.png"
-dest_files=[ "res://.import/porta_red.png-20966a99284f9b942a444d0b27c1262d.stex" ]
+source_file="res://assets/tilesets/all/checkpoint_flag_done.png"
+dest_files=[ "res://.import/checkpoint_flag_done.png-25423cf058f0736fb6944371985d8368.stex" ]
 
 [params]
 

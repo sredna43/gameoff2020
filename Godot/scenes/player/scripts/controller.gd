@@ -39,6 +39,7 @@ var shoot_dir: Vector2
 onready var jump_timer: Timer = $Timers/JumpTimer
 onready var floor_timer: Timer = $Timers/GroundTimer
 onready var shoot_timer: Timer = $Timers/ShootTimer
+onready var hit_cooldown_timer: Timer = $Timers/HitCooldownTimer
 onready var fallthrough_timer: Timer = $Timers/FallthroughTimer
 var grounded: bool = false setget , _get_grounded
 var jumping: bool = false setget , _get_jumping
@@ -75,8 +76,8 @@ func _physics_process(_delta: float) -> void:
             var collision = get_slide_collision(i)
             can_fall_through = collision.collider.name == "OneWayMoonTiles"
             on_vertical_platform = collision.collider.name.begins_with("VerticalPlatform")
-            if collision.collider.name in global.things_that_kill_you:
-                die(collision.collider.name)
+            if collision.collider.name in global.things_that_kill_you and not hit_cooldown_timer.time_left > 0:
+                hit(collision.collider.name)
     else:
         can_fall_through = false
         on_vertical_platform = false
@@ -187,6 +188,14 @@ func update_look_direction():
             # print("kick turn", direction)
             pass
             
+func hit(by: String) -> void:
+    hit_cooldown_timer.start()
+    print("Hit by " + by)  
+    update_health(-1)
+    if global.health == 0:
+        die(by)
+              
+            
 func die(reason: String) -> void:
     print("Death by " + reason)
 
@@ -220,7 +229,7 @@ func _get_jumping() -> bool:
 func add_ammo(amount: int) -> void:
     global.ammo = clamp(global.ammo + amount, 0, global.max_ammo)
 
-func add_health(amount: int) -> void:
+func update_health(amount: int) -> void:
     global.health = clamp(global.health + amount, 0, global.max_health)
 
     print("added " + str(amount) + " health to player, total health = " + str(global.health))
