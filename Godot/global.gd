@@ -62,4 +62,4 @@ func restart_level() -> void:
     goto_scene(current_level_path)
     
 func win_game() -> void:
-    print("Winner!")
+    pass

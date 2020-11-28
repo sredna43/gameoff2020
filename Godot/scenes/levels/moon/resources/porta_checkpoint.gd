@@ -9,7 +9,6 @@ func _ready() -> void:
 
 func _on_PortaPotty_body_exited(body: Node) -> void:
     if body.name == "Player" and global.on_checkpoint < checkpoint_number:
-        print("portapotty reached")
         $Red.visible = false
         $Green.visible = true
         $AnimationPlayer.play("squish")

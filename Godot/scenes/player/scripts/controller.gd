@@ -184,17 +184,16 @@ func update_look_direction():
     $root.scale.x = 0.05 * velocity.x/abs(velocity.x) if velocity.x != 0 else 0.05 * direction.x
     if velocity.x and state_machine.active_state.tag in ["walk", "run"]:
         if direction.x != velocity.x/abs(velocity.x):
-            # print("kick turn", direction)
             pass
             
-func hit(by: String) -> void:
+func hit(_by: String) -> void:
     hit_cooldown_timer.start()
     update_health(-1)
     if global.health == 0:
-        die(by)
+        die(_by)
               
             
-func die(reason: String) -> void:
+func die(_reason: String) -> void:
     emit_signal("restart_level")
 
 
@@ -229,8 +228,6 @@ func add_ammo(amount: int) -> void:
 
 func update_health(amount: int) -> void:
     global.health = clamp(global.health + amount, 0, global.max_health)
-
-    print("added " + str(amount) + " health to player, total health = " + str(global.health))
 
 func _on_controller_connected(device_id, connected):
     if connected:
