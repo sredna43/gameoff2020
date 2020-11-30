@@ -30,7 +30,7 @@ extents = Vector2( 8.74999, 3.35814 )
 radius = 8.73923
 height = 26.5601
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "jump"
 tracks/0/type = "value"
 tracks/0/path = NodePath("hip/torso/helmet/eyes:position")
@@ -950,7 +950,7 @@ tracks/37/keys = {
 "values": [ -3.38349, -3.38349, -3.38349, -3.38349, -3.38349 ]
 }
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 20 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -1019,9 +1019,8 @@ scale = Vector2( 0.05, 0.05 )
 
 [node name="thigh_l" type="Sprite" parent="root"]
 modulate = Color( 0.866667, 0.866667, 0.866667, 1 )
-position = Vector2( 37.1096, -8.97084 )
+position = Vector2( 37.1096, -8.97088 )
 rotation = -0.289711
-scale = Vector2( 1, 1 )
 z_index = 1
 texture = ExtResource( 17 )
 offset = Vector2( -4.11979, 112.495 )
@@ -1034,9 +1033,8 @@ texture = ExtResource( 19 )
 offset = Vector2( -3.01932, 61.4949 )
 
 [node name="foot_l" type="Sprite" parent="root/thigh_l/shin_l"]
-position = Vector2( -0.0894203, 107.978 )
+position = Vector2( -0.0894432, 107.978 )
 rotation = -0.0624705
-scale = Vector2( 1, 1 )
 z_index = 1
 z_as_relative = false
 texture = ExtResource( 18 )
@@ -1045,28 +1043,27 @@ offset = Vector2( 46.5848, 53.4674 )
 [node name="bicep_l" type="Sprite" parent="root"]
 modulate = Color( 0.835294, 0.835294, 0.835294, 1 )
 light_mask = -2147483647
-position = Vector2( 0.547294, -231.903 )
+position = Vector2( 0.547417, -231.903 )
 rotation = -0.491612
 texture = ExtResource( 10 )
 offset = Vector2( -5.61292, 39.767 )
 
 [node name="hand_l" type="Sprite" parent="root/bicep_l"]
-position = Vector2( 63.3644, 161.781 )
-rotation = 1.03948
+position = Vector2( 63.364, 161.782 )
+rotation = 1.03949
 scale = Vector2( 0.789305, 0.789305 )
 texture = ExtResource( 21 )
 offset = Vector2( 36.7411, -21.3548 )
 
 [node name="forearm_l" type="Sprite" parent="root/bicep_l"]
-position = Vector2( -14.895, 86.9968 )
-rotation = -0.384839
+position = Vector2( -14.8951, 86.9972 )
+rotation = -0.384834
 texture = ExtResource( 12 )
 offset = Vector2( 23.3624, 51.5565 )
 
 [node name="antenna" type="Sprite" parent="root"]
-position = Vector2( -67.7133, -515.122 )
+position = Vector2( -67.713, -515.122 )
 rotation = -0.413893
-scale = Vector2( 1, 1 )
 texture = ExtResource( 15 )
 offset = Vector2( -13.1418, -28.02 )
 
@@ -1117,7 +1114,6 @@ __meta__ = {
 [node name="remote_thigh_l" type="RemoteTransform2D" parent="root/hip"]
 position = Vector2( 44.956, -28.2081 )
 rotation = -0.230658
-scale = Vector2( 1, 1 )
 remote_path = NodePath("../../thigh_l")
 __meta__ = {
 "_edit_bone_": true,
@@ -1271,7 +1267,7 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="root"]
 autoplay = "walk"
 anims/idle = ExtResource( 22 )
-anims/jump = SubResource( 5 )
+anims/jump = SubResource( 3 )
 anims/walk = SubResource( 4 )
 
 [node name="debug" type="CanvasLayer" parent="."]
@@ -1281,7 +1277,7 @@ margin_left = 478.894
 margin_top = 12.766
 margin_right = 537.894
 margin_bottom = 29.766
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 5 )
 text = "DEBUG"
 __meta__ = {
 "_edit_use_anchors_": false

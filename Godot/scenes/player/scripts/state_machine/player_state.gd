@@ -11,7 +11,7 @@ func _ready() -> void:
 
 # Function to be called when we enter this state
 func enter(_player: KinematicBody2D) -> void:
-    pass
+    _player.play_animation(tag)
     
 # Function to be called with each physics process during runtime
 func run(_player: KinematicBody2D) -> String:
