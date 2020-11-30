@@ -52,8 +52,20 @@ var can_double_jump: bool = false
 var can_fall_through: bool = false
 var on_vertical_platform: bool = false
 
-# Animation player
+# Animation
 onready var animation_player: AnimationPlayer = $root/AnimationPlayer
+
+# Shooting
+onready var gun: Sprite = $root/hip/torso/bicep_r
+onready var bullet_spawn: Position2D = $BulletSpawnerLocation
+var ur = Vector2(1,-1).normalized()
+var dr = Vector2(1,1).normalized()
+var ul = Vector2(-1,-1).normalized()
+var dl = Vector2(-1,1).normalized()
+var r = Vector2.RIGHT
+var u = Vector2.UP
+var l = Vector2.LEFT
+var d = Vector2.DOWN
 
 # Core functions 
 
@@ -118,58 +130,99 @@ func apply_gravity():
     if velocity.y <= terminal_velocity and not on_vertical_platform:
         velocity.y += gravity
         
+        
 func fire() -> void:
     if not global.dev:
         global.ammo = clamp(global.ammo-1, 0, global.max_ammo)
-    var ur = Vector2(1,-1).normalized()
-    var dr = Vector2(1,1).normalized()
-    var ul = Vector2(-1,-1).normalized()
-    var dl = Vector2(-1,1).normalized()
-    var r = Vector2.RIGHT
-    var u = Vector2.UP
-    var l = Vector2.LEFT
-    var d = Vector2.DOWN
     if not controller_is_connected or Input.is_mouse_button_pressed(BUTTON_LEFT):
         var vector_to_mouse: Vector2 = get_local_mouse_position()
         var x = vector_to_mouse.x
         var y = -vector_to_mouse.y
+        
         if y <= 0.5 * x and y > -0.5 * x: #RIGHT
             shoot_dir = r
+            gun.rotation_degrees = -90
+            bullet_spawn.position = Vector2(15, -9)
+            
         if y > 0.5 * x and y <= 2 * x: #UP-RIGHT
             shoot_dir = ur
+            gun.rotation_degrees = -135
+            bullet_spawn.position = Vector2(11, -21)
+            
         if y > 2 * x and y >= -2 * x: #UP
             shoot_dir = u
+            gun.rotation_degrees = -180
+            bullet_spawn.position = Vector2(0, -24)
+            
         if y < -2 * x and y >= -0.5 * x: #UP-LEFT
             shoot_dir = ul
+            gun.rotation_degrees = -135
+            bullet_spawn.position = Vector2(-11, -21)
+            
         if y < -0.5 * x and y >= 0.5 * x: #LEFT
             shoot_dir = l
+            gun.rotation_degrees = -90
+            bullet_spawn.position = Vector2(-15, -9)
+            
         if y < 0.5 * x and y >= 2 * x: #DOWN-LEFT
             shoot_dir = dl
+            gun.rotation_degrees = -45
+            bullet_spawn.position = Vector2(-11, 2)
+            
         if y < 2 * x and y <= -2 * x: #DOWN
             shoot_dir = d
+            gun.rotation_degrees = 0
+            bullet_spawn.position = Vector2(0, 7)
+            
         if y > -2 * x and y <= -0.5 * x: #DOWN-RIGHT
             shoot_dir = dr
+            gun.rotation_degrees = -45
+            bullet_spawn.position = Vector2(11, 2)
     else:
         shoot_dir = direction
-        if horizontal_input > 0: #RIGHT
-            if abs(vertical_input) < 0.4:
+        if horizontal_input > 0:
+            if abs(vertical_input) < 0.4: #RIGHT
                 shoot_dir = r
-            if vertical_input > 0.4:
+                gun.rotation_degrees = -90
+                bullet_spawn.position = Vector2(15, -9)
+                
+            if vertical_input > 0.4: #DOWN-RIGHT
                 shoot_dir = dr
-            if vertical_input < -0.4:
+                gun.rotation_degrees = -45
+                bullet_spawn.position = Vector2(11, 2)
+                
+            if vertical_input < -0.4: #UP-RIGHT
                 shoot_dir = ur
-        if horizontal_input < 0: #LEFT
-            if abs(vertical_input) < 0.4:
+                gun.rotation_degrees = -135
+                bullet_spawn.position = Vector2(11, -21)
+                
+        if horizontal_input < 0:
+            if abs(vertical_input) < 0.4: #LEFT
                 shoot_dir = l
-            if vertical_input > 0.4:
+                gun.rotation_degrees = -90
+                bullet_spawn.position = Vector2(-15, -9)
+                
+            if vertical_input > 0.4: #DOWN-LEFT
                 shoot_dir = dl
-            if vertical_input < -0.4:
+                gun.rotation_degrees = -45
+                bullet_spawn.position = Vector2(-11, 2)
+                
+            if vertical_input < -0.4: #UP-LEFT
                 shoot_dir = ul
-        if horizontal_input == 0: #UP/DOWN
-            if vertical_input > 0.4:
+                gun.rotation_degrees = -135
+                bullet_spawn.position = Vector2(-11, -21)
+                
+        if horizontal_input == 0:
+            if vertical_input > 0.4: #DOWN
                 shoot_dir = d
-            if vertical_input < -0.4:
+                gun.rotation_degrees = 0
+                bullet_spawn.position = Vector2(0, 7)
+                
+            if vertical_input < -0.4: #UP
                 shoot_dir = u
+                gun.rotation_degrees = -180
+                bullet_spawn.position = Vector2(0, -24)
+                
     emit_signal("shoot", shoot_dir)
     shoot_timer.start()
     
@@ -185,6 +238,8 @@ func update_look_direction():
             $root.scale.x = 0.05
             return
     $root.scale.x = 0.05 * velocity.x/abs(velocity.x) if velocity.x != 0 else 0.05 * direction.x
+    if shoot_dir.y == 0:
+        gun.rotation_degrees = -90
     if velocity.x and state_machine.active_state.tag in ["walk", "run"]:
         if direction.x != velocity.x/abs(velocity.x):
             pass
