@@ -5,6 +5,8 @@ extends Node
 ### Game variables ###
 
 var dev: bool = true
+enum GAME_STATES {MENU, PAUSED, PLAYING}
+var game_state = GAME_STATES.MENU
 
 # Worlds
 var worlds: Dictionary = {

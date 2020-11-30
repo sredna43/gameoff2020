@@ -89,10 +89,11 @@ func _physics_process(_delta: float) -> void:
     if get_slide_count():
         for i in get_slide_count():
             var collision = get_slide_collision(i)
-            can_fall_through = collision.collider.name == "OneWayMoonTiles"
-            on_vertical_platform = collision.collider.name.begins_with("VerticalPlatform")
-            if collision.collider.name in global.things_that_kill_you and not hit_cooldown_timer.time_left > 0:
-                hit(collision.collider.name)
+            if collision.collider:
+                can_fall_through = collision.collider.name == "OneWayMoonTiles"
+                on_vertical_platform = collision.collider.name.begins_with("VerticalPlatform")
+                if collision.collider.name in global.things_that_kill_you and not hit_cooldown_timer.time_left > 0:
+                    hit(collision.collider.name)
     else:
         can_fall_through = false
         on_vertical_platform = false
@@ -132,6 +133,8 @@ func apply_gravity():
         
         
 func fire() -> void:
+    if global.game_state != global.GAME_STATES.PLAYING:
+        return
     if not global.dev:
         global.ammo = clamp(global.ammo-1, 0, global.max_ammo)
     if not controller_is_connected or Input.is_mouse_button_pressed(BUTTON_LEFT):

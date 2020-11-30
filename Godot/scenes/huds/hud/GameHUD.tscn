@@ -27,7 +27,8 @@ __meta__ = {
 [node name="HealthLabel" parent="Labels" instance=ExtResource( 3 )]
 
 [node name="OxygenBar" parent="." instance=ExtResource( 4 )]
-margin_left = 909.437
-margin_top = -1.15431
-margin_right = 1000.44
-margin_bottom = 108.846
+margin_left = 947.535
+margin_top = 8.37007
+margin_right = 1223.53
+margin_bottom = 887.37
+rect_scale = Vector2( 0.16, 0.16 )
