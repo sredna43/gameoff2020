@@ -16,21 +16,21 @@ onready var location = get_parent()
 
 func set_init_rotation(nb: KinematicBody2D, dir: Vector2):
     if dir == r:
-        nb.initial_rotation = 0
+        nb.rotation_degrees = 0
     if dir == ur:
-        nb.initial_rotation = -45
+        nb.rotation_degrees = -45
     if dir == dr:
-        nb.initial_rotation = 45
+        nb.rotation_degrees = 45
     if dir == l:
-        nb.initial_rotation = 180
+        nb.rotation_degrees = 180
     if dir == ul:
-        nb.initial_rotation = -135
+        nb.rotation_degrees = -135
     if dir == dl:
-        nb.initial_rotation = 135
+        nb.rotation_degrees = 135
     if dir == u:
-        nb.initial_rotation = -90
+        nb.rotation_degrees = -90
     if dir == d:
-        nb.initial_rotation = 90
+        nb.rotation_degrees = 90
 
 func fire(direction: Vector2) -> void:
     var new_bullet = bullet.instance()

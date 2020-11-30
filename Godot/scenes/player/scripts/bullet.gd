@@ -4,13 +4,11 @@ extends KinematicBody2D
 
 var velocity: Vector2 = Vector2.ZERO
 var direction: Vector2 = Vector2.ZERO
-var initial_rotation: float = 90
 
 onready var global: Node = get_node("/root/Global")
 
 func _ready() -> void:
     set_as_toplevel(true)
-    $Sprite.rotation_degrees = initial_rotation
     
 
 func _physics_process(_delta: float) -> void:
