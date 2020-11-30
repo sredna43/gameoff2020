@@ -6,7 +6,12 @@ var max_speed: float = 0
 
 func enter(player: KinematicBody2D):
     max_speed = abs(player.vx) if abs(player.vx) > player.walk_speed else player.walk_speed
-    .enter(player)
+    if player.animation_player.current_animation == "jump" or player.animation_player.current_animation == "double_jump":
+        yield (player.animation_player, "animation_finished")
+        if player.state_machine.active_state.tag == tag:
+            .enter(player) # Base class
+    else:
+        .enter(player) # Base class
     
 func run(player: KinematicBody2D):
     if abs(player.horizontal_input) > 0 and abs(player.vx + player.horizontal_input) < max_speed:
