@@ -1,11 +1,11 @@
 extends Control
 
 func _ready():
-    visible = false
+	visible = false
 
 func close():
-    visible = false
+	visible = false
 
 func open():
-    visible = true
+	visible = true
 
